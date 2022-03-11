@@ -15,16 +15,16 @@ public class day {
             System.out.print("Tuesday");
             break;
             case 4:
-            System.out.print("Sunday");
+            System.out.print("Wednesday");
             break;
             case 5:
-            System.out.print("Sunday");
+            System.out.print("Thrusday");
             break;
             case 6:
-            System.out.print("Sunday");
+            System.out.print("Friday");
             break;
             case 7:
-            System.out.print("Sunday");
+            System.out.print("Saturday");
             break;
             default:
             System.out.print("Please enter number from 1 to 7");
