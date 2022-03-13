@@ -3,7 +3,7 @@
 
     
 # JAVA-PROGRAMMING
-This is a **JAVA PROGRAMMING REPO** where you could find a lot of programs on various topics..Explore it well..
+This is my **JAVA PROGRAMMING REPO** where you could find a lot of programs on various topics..Explore it well..
 
 # LICENSE
 
