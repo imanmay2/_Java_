@@ -1,5 +1,5 @@
 <!-- ![Logo](java.jpg) -->
-<kbd>![java](java.jpg)</kbd>
+<kbd>![Image](java.jpg)</kbd>
 
     
 # JAVA-PROGRAMMING
