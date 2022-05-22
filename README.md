@@ -24,7 +24,7 @@ Hi, I am Manmay Chakraborty who is currently building up projects such as games,
 
 ## Feedback
 
-If you have any feedback, please reach out to me at manmaychakarborty@gmail.com
+If you have any feedback, feel free to reach out at manmaycoder@gmail.com
 
 
 ## 🛠 Skills
