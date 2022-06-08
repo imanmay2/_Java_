@@ -28,4 +28,4 @@ If you have any feedback, feel free to reach out at manmaycoder@gmail.com
 
 
 ## 🛠 Skills
-Javascript, HTML, CSS,C,C++,PYTHON and JAVA
+Javascript, HTML, CSS,C,C++,PYTHON,JAVA and SQL
