@@ -1,3 +1,5 @@
+// Input the side of the square and diaply it's area.
+
 import java.util.*;
 public class square_area{
     public static void main(String args[])
