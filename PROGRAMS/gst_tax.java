@@ -11,7 +11,7 @@ public class gst_tax{
         float pen=sc.nextFloat();   
         System.out.println("Enter the price for the erasor : ");
         float erasor=sc.nextFloat();
-        float total=float(pencil+pen+erasor+ (0.18*pencil)+(0.18*pen)+(0.18*erasor));
+        float total=pencil+pen+erasor+ (0.18f*pencil)+(0.18f*pen)+(0.18f*erasor);
         System.out.println("Total cost of the products are : "+total);
         
     }
