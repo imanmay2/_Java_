@@ -6,7 +6,10 @@
  // 3. Move all the -ve elements on the left side of the array.
 
  //4. Assign Roll Number to student in alphabetical order.
- /* 5 .Find a peak element which is not smaller than its neighbours
+ /* 5 .
+         peak_neighbour.java
+ 
+ Find a peak element which is not smaller than its neighbours
 Given an array arr of n elements that is first strictly increasing and then maybe strictly decreasing, find the maximum element in the array.
 
 Note: If the array is increasing then just print the last element will be the maximum value.
