@@ -28,12 +28,16 @@ public class peak_neighbour{
         for(int i=0;i<n;i++){
             if(i==0 && arr[i]>arr[i+1]){
                 System.out.println("Peak Element is : "+arr[i]);
+                break;
             }
-            else if(i==n-1 && arr[i]>arr[i-1]){
+            else if(i==n-1 && (arr[i]>arr[i-1])){
                 System.out.println("Peak Element is : "+arr[i]);
+                break;
             }
-            else if(arr[i]>arr[i+1] && arr[i]>arr[i-1] && i!=0 && i!=n-1){
+            else if((arr[i]>arr[i+1]) && (arr[i]>arr[i-1]) && i!=0 && i!=n-1){
                 System.out.println("Peak Element is : "+arr[i]);
+                break;
+                
             }
             
         }
