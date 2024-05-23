@@ -33,6 +33,9 @@ public class positive_missing{
         
 
         }
+        if(f==true){
+            break;
+        }
     }
     if(f==false){
         System.out.println("Sorry !! Small positve missing number not found !!");
