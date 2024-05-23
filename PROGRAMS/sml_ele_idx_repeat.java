@@ -32,5 +32,4 @@ public class sml_ele_idx_repeat{
                 System.out.println("No repeating element found !!!");
             }
         }
-
-    }
+}
