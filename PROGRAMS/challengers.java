@@ -6,7 +6,7 @@
  // 3. Move all the -ve elements on the left side of the array.
 
  //4. Assign Roll Number to student in alphabetical order.
- /* 5 .
+ /* 5 .  Done
          peak_neighbour.java
  
  Find a peak element which is not smaller than its neighbours
@@ -23,7 +23,10 @@ Explanation: The element 20 has neighbors 10 and 15, both of them are less than 
 
 
 
-//6. Smallest positive missing number . 
+//6.                    positive_missing.java
+
+
+// Smallest positive missing number .
 //Accoute,Amazon,Samsung,Snapdeal
 
 //You are given an array arr[] of N integres including 0. the task is to find the smallest
