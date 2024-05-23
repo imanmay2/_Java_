@@ -30,7 +30,7 @@ public class positive_missing{
                 f=true;
                 break;
             }
-
+        
 
         }
     }
