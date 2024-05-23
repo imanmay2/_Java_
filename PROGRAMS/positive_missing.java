@@ -20,13 +20,18 @@ public class positive_missing{
         //main algo starts from here.
         boolean f=false;
         for(int i=0;i<n;i++){
-            if(arr[i]>=0){
-                for(int j=i+1;j<n;j++){
-                    if(arr[i]+1==arr[j]){
-                        continue;
-                }
+            for(int j=i+1;j<n;j++){
+                // if(arr[i]>arr[j]){
+                //     continue;
+                // }
 
+            if((arr[i]<arr[j]) && (arr[j]-arr[i])>1){
+                System.out.println("Small Positive missing number is : "+(arr[i]+1));
+                f=true;
+                break;
             }
+
+
         }
     }
     if(f==false){
