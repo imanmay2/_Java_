@@ -26,6 +26,9 @@ public class sml_ele_idx_repeat{
                     f=true;
                     break;
                 }
+                if(f==true){
+                    break;
+                }
             }
             }
             if(f==false){
