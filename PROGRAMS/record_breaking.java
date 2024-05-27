@@ -8,3 +8,23 @@
 // NOTE : every first day could be record breaking days.
 
 
+import java.util.*;
+public class record_breaking{
+   
+
+    public static void main(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the array : ");
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        //inserting elements into an array.
+        for(int i=0;i<n;++i){
+            System.out.println("Enter the element : ");
+            arr[i]=sc.nextInt();// array created
+        }
+
+
+        //main algo starts from here.
+
+    }
+} 
