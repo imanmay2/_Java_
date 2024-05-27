@@ -16,13 +16,8 @@ public class record_breaking{
         if(arr[i]<num){
             return true;
         }
-        else if(arr[i]>num){
+        else{
             return false;
-            f=1;
-            break;
-        }
-        if(f==1){
-            break;
         }
     }
    }
@@ -42,17 +37,21 @@ public class record_breaking{
         //main algo starts from here.
         // [1,2,0,7,2,0,2,2]
         for(int i=0;i<n;i++){
-            if(i==0 and arr[i]>arr[i+1]){
+            if(i==0 && arr[i]>arr[i+1]){
                 System.out.println("RECORD BREAKING DAY : "+arr[i]);
+                break;
             }
-            else if(i==n-1 and check(arr,arr[i],n,i)==true){
+            else if(i==n-1 && check(arr,arr[i],n,i)==true){
                 System.out.println("RECORD BREAKING DAY : "+arr[i]);
+                break;
             }
-            else if(check(arr,arr[i],n,i)==true and arr[i]>arr[i+1]){
+            else if(check(arr,arr[i],n,i)==true && arr[i]>arr[i+1]){
                 System.out.println("RECORD BREAKING DAY  : "+arr[i]);
+                break;
             }
             else {
                 System.out.println(" NO RECORD BREAKING DAYS FOUND IN THE ARRAY. ");
+                break;
             }
         }
     }
