@@ -10,7 +10,22 @@
 
 import java.util.*;
 public class record_breaking{
-   
+   static boolean check(int arr[],int num,int n,int idx){
+    int f=0;
+    for(int i=0;i<idx;++i){
+        if(arr[i]<num){
+            return true;
+        }
+        else if(arr[i]>num){
+            return false;
+            f=1;
+            break;
+        }
+        if(f==1){
+            break;
+        }
+    }
+   }
 
     public static void main(){
         Scanner sc=new Scanner(System.in);
@@ -25,6 +40,20 @@ public class record_breaking{
 
 
         //main algo starts from here.
-
+        // [1,2,0,7,2,0,2,2]
+        for(int i=0;i<n;i++){
+            if(i==0 and arr[i]>arr[i+1]){
+                System.out.println("RECORD BREAKING DAY : "+arr[i]);
+            }
+            else if(i==n-1 and check(arr,arr[i],n,i)==true){
+                System.out.println("RECORD BREAKING DAY : "+arr[i]);
+            }
+            else if(check(arr,arr[i],n,i)==true and arr[i]>arr[i+1]){
+                System.out.println("RECORD BREAKING DAY  : "+arr[i]);
+            }
+            else {
+                System.out.println(" NO RECORD BREAKING DAYS FOUND IN THE ARRAY. ");
+            }
+        }
     }
 } 
