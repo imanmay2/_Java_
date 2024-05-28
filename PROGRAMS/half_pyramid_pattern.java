@@ -1,0 +1,2 @@
+// half pyramid pattern.
+
