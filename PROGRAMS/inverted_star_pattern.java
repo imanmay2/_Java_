@@ -1,6 +1,6 @@
 // inverted star pattern
 
-import java.util.*;
+
 public class inverted_star_pattern{
     public static void main(String args[]){
         for(int i=4;i>=1;i--){
