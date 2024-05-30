@@ -10,19 +10,21 @@
 
 import java.util.*;
 public class record_breaking{
-   static boolean check(int arr[],int num,int n,int idx){
+   public static boolean check(int arr[],int num,int n,int idx){
     int f=0;
     for(int i=0;i<idx;++i){
         if(arr[i]<num){
-            return true;
+            f++;
         }
-        else{
-            return false;
-        }
+        
     }
+    if(f==idx){
+        return true;
+    }
+    return false;
    }
 
-    public static void main(){
+    public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Size of the array : ");
         int n=sc.nextInt();
@@ -34,25 +36,25 @@ public class record_breaking{
         }
 
 
-        //main algo starts from here.
+        // main algo starts from here.
         // [1,2,0,7,2,0,2,2]
+        int f=0;
         for(int i=0;i<n;i++){
             if(i==0 && arr[i]>arr[i+1]){
                 System.out.println("RECORD BREAKING DAY : "+arr[i]);
-                break;
+                f=1;
             }
             else if(i==n-1 && check(arr,arr[i],n,i)==true){
                 System.out.println("RECORD BREAKING DAY : "+arr[i]);
-                break;
+                f=1;
             }
             else if(check(arr,arr[i],n,i)==true && arr[i]>arr[i+1]){
                 System.out.println("RECORD BREAKING DAY  : "+arr[i]);
-                break;
+                f=1;
             }
-            else {
-                System.out.println(" NO RECORD BREAKING DAYS FOUND IN THE ARRAY. ");
-                break;
-            }
+        }
+        if(f==0){
+            System.out.println("NO RECORD BREAKING DAY FOUND !!");
         }
     }
 } 
