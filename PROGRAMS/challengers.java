@@ -25,7 +25,6 @@ Explanation: The element 20 has neighbors 10 and 15, both of them are less than 
 
 //6.                    positive_missing.java(DONE)
 
-
 // Smallest positive missing number .
 //Accoute,Amazon,Samsung,Snapdeal
 
