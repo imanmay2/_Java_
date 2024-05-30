@@ -49,7 +49,7 @@ Explanation: The element 20 has neighbors 10 and 15, both of them are less than 
 //10.// Write a program that will find the pair of the given sum in the ARAAY.
 
 
-////11.    sml_ele_idx_repeat.java
+////11.    sml_ele_idx_repeat.java(DONE)
 
 // Given an array arr[] of size N. The task is to find the first repeating element in the array of integres. i.e an
 //element that occurs more than once and whose index of the first occurence is smallest.
