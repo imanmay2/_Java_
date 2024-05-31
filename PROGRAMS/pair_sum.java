@@ -14,5 +14,19 @@ public class pair_sum{
         }
 
         //main algo starts from here.
+        System.out.println("Enter the sum : ");
+        int s=sc.nextInt();
+        boolean f=false;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[i]+arr[j]==s){
+                    System.out.println("Pair found!! "+arr[i]+","+arr[j]);
+                    f=true;
+                }
+            }
+        }
+        if(f==false){
+            System.out.println("No pair found !!!");
+        }
     }
 }
