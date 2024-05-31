@@ -45,7 +45,8 @@ Explanation: The element 20 has neighbors 10 and 15, both of them are less than 
 //9.// WAP that will display the count of the most repeating string and the string too.
 
 
-//10.// Write a program that will find the pair of the given sum in the ARAAY.
+//10.                   pair_sum.java
+//   Write a program that will find the pair of the given sum in the ARAAY.
 
 
 ////11.    sml_ele_idx_repeat.java(DONE)
