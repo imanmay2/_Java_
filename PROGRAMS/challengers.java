@@ -67,7 +67,9 @@ Explanation: The element 20 has neighbors 10 and 15, both of them are less than 
    // and find whether it is present or not in the array, if present return the index value.
 
 
-//14. // longest arithmetic subarray.
+//14.                   Q not clear.
+
+// longest arithmetic subarray.
 // e.g : [10,7,4,6,8,10,11]
 //       sub-array :[2,4,6,8] 
 //       output should be 4.
