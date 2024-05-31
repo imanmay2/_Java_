@@ -58,7 +58,8 @@ Explanation: The element 20 has neighbors 10 and 15, both of them are less than 
 
 
 
-// 12. //WAP THAT WILL ACCEPT A SENTENCE AND PRINT THE LARGEST WORD FROM THAT SENTENCE/.
+// 12.  //WAP THAT WILL ACCEPT A SENTENCE AND PRINT THE LARGEST WORD FROM THAT SENTENCE/.
+
 
 //13.   idx_present.java(DONE).
 // WAP that will create an array and also accept an element
