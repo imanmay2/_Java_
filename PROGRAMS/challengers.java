@@ -91,5 +91,5 @@ Explanation: The element 20 has neighbors 10 and 15, both of them are less than 
 // 16. WAP that will transpose the given array.
 
 
-//17.           subarray_sum.java
+//17.           subarray_sum.java(DONE)
  // Given an array a[] of size n. Output sum of each subarray of the given array.
