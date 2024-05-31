@@ -38,14 +38,14 @@ Explanation: The element 20 has neighbors 10 and 15, both of them are less than 
 // 7 . Implement Stack Operation in Java.
 
 
-//8.
+//8.            union_intersection.java(DONE)
 // Find union and intersection of 2 arrays.
 
 
 //9.// WAP that will display the count of the most repeating string and the string too.
 
 
-//10.                   pair_sum.java
+//10.                   pair_sum.java(DONE)
 //   Write a program that will find the pair of the given sum in the ARAAY.
 
 
