@@ -1,7 +1,7 @@
 // Creating a single file for all types of pattern.
 
 
-public class patterns{
+public class adv_patterns{
     public static void inverted_half_pyra(){
         for(int i=5;i>=1;i--){
             for(int j=1;j<=i;j++){
@@ -157,6 +157,6 @@ public class patterns{
 
 
     public static void main(String args[]){
-        diamond(4);
+        
     }
 }
