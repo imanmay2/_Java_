@@ -69,6 +69,6 @@ public class patterns{
 
 
     public static void main(String args[]){
-        inverted_rotated_half_pyramid();
+        inverted_half_pyra();
     }
 }
