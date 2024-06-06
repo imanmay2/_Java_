@@ -32,7 +32,6 @@ public class buy_sell_stock{
             else if(pro<p){
                 pro=p;
             }
-            
         }
         return pro;
     }
