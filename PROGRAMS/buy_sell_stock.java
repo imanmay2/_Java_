@@ -35,9 +35,6 @@ public class buy_sell_stock{
         }
         return pro;
     }
-
-
-
     public static void main(String args[]){
         int[] arr={7,1,5,3,6,4};
         System.out.println("The Maximum Profit of the STOCK is : "+ profit(arr));
