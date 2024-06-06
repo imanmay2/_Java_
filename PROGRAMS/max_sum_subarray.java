@@ -19,31 +19,40 @@ public class max_sum_subarray{
 
 
     public static void main(String args[]){
-        int[] arr={2,4,6,8,10};
+        int[] arr={1,-2,6,-1,3};
         System.out.println("The maximum value of the subarray is: "+max_sum(arr));
     }
 }
 
 
 
-                            // Prefix Sum method to calculate the max sum of the subarray.
 
-import java.util.*;
+
+//                  kadane's algorithm 
+
+
+
 public class max_sum_subarray{
     public static int max_sum(int[] arr){
-        int sum=0,s=0;
+        int s=0,sum=0;
         int[] pre_arr=new int[arr.length];
         for(int i=0;i<arr.length;i++){
-            s=s+arr[i];
-            pre_arr[i]=s;
+            s+=arr[i];
+            if(s<0){
+                s=0;
+                sum=0;
+            }
+            else if(s>sum){
+                sum=s;
+            }
         }
-        return pre_arr[(arr.length-1)];
+        return sum;
     }
 
 
 
     public static void main(String args[]){
-        int[] arr={2,4,6,8,10};
-        System.out.println("The max sum of the array : "+max_sum(arr));
+        int[] arr={-2,-3,4,-1,-2,1,5,-3};
+        System.out.println("The maximum subarray : "+max_sum(arr));
     }
 }
