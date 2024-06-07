@@ -42,7 +42,7 @@ public class trap_rainwater{
 
 
     public static void main(String args[]){
-        int[] arr={4,2,0,3,2,5};
+        int[] arr={0,1,0,2,1,0,1,3,2,1,2,1};
         int[] left_max_arr=new int[arr.length];
         L_max_arr(arr,left_max_arr);
         int[] right_max_arr=new int[arr.length];
