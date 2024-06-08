@@ -1,7 +1,7 @@
 // Given an array. Sort it via BUBBLE SORT METHod.
 
 
-
+import java.util.*;
 public class SORTING{
     public static void bubble_sort(int[] arr){
         for(int i=0;i<arr.length;i++){
@@ -47,8 +47,15 @@ public class SORTING{
 
 
     public static void main(String args[]){
-        int[] arr={8,1,7,2,6,3,5};
-        insertion_sort(arr);
+        Integer[] arr={8,1,7,2,6,3,5};
+        Arrays.sort(arr); 
+
+
+        // //sorting in a range...
+        // Arrays.sort(arr,0,3);
+
+        // sorting in ascending order.
+        Arrays.sort(arr,Collections.reverseOrder());
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
