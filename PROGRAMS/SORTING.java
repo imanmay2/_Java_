@@ -51,8 +51,8 @@ public class SORTING{
         Arrays.sort(arr); 
 
 
-        // //sorting in a range...
-        // Arrays.sort(arr,0,3);
+        //sorting in a range...
+        Arrays.sort(arr,0,3);
 
         // sorting in ascending order.
         Arrays.sort(arr,Collections.reverseOrder());
