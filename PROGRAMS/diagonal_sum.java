@@ -11,12 +11,23 @@ public class diagonal_sum{
             {13,14,15,16}
         };
         int s=0;
+        // for(int i=0;i<arr.length;i++){
+        //     for(int j=0;j<arr[0].length;j++){
+        //         if(i==j || i+j==arr.length-1){
+        //             s+=arr[i][j];
+        //         }
+        //     }
+        // }
+
+        //optimised code: 
+
         for(int i=0;i<arr.length;i++){
-            for(int j=0;j<arr[0].length;j++){
-                if(i==j || i+j==arr.length-1){
-                    s+=arr[i][j];
-                }
+            s+=arr[i][i];
+
+            if(i!=arr[i][arr.length-1-i]){
+                s+=arr[i][arr.length-1-i];
             }
+            
         }
         System.out.print("The sum of the diagonals of the matrix are : "+ s);
     }
