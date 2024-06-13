@@ -25,22 +25,23 @@ public class palindrome_string{
 
 
 
-// public class palindrome_string{
-//     public static void main(String args[]){
-//         String str=new String("racecar");
-//         String s=new String("");;
-//         for(int i=str.length()-1;i>=0;i--){
-//             s=s+str.charAt(i);
-//         }
+public class palindrome_string{
+    public static void main(String args[]){
+        String str=new String("racecar");
+        String s=new String("");;
+        for(int i=str.length()-1;i>=0;i--){
+            s=s+str.charAt(i);
+        }
 
 
-//         // System.out.print(s+" "+str);
+        // System.out.print(s+" "+str);
 
-//         if(s==str){
-//             System.out.print("Word is Palindrome");
-//         }
-//         else if(s!=str){
-//             System.out.print("Word is not Palindrome");
-//         }
-//     }
-// }
+        if(s.equals(str)){
+            System.out.print("Word is Palindrome");
+        }
+        else{
+            System.out.println("Word is not Palindrome");
+            System.out.print(s+" "+str);
+        }
+    }
+}
