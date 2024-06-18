@@ -30,12 +30,27 @@ public class ith_bit_operation{
         int b=(1<<i)-1;
         System.out.println((a|b)&n);
     }
+
+
     public static boolean check_power_2(int n){
         return ((n&(n-1))==0);
     }
 
 
+    public static int count_bit(int n){
+        int ct=0;
+        while(n!=0){
+            int r=(n&1);
+            if(r==1){
+                ct++;
+            }
+            n=(n>>1);
+        }
+        return ct;
+    }
+
+
     public static void main(String args[]){
-        System.out.println(check_power_2(8));
+        System.out.println(count_bit(10));
     }
 }
