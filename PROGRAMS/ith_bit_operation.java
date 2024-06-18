@@ -25,9 +25,17 @@ public class ith_bit_operation{
     public static void clear_last_ith_bit(int n,int i){
         System.out.println(((-1)<<i)&n);
     }
+    public static void clear_range_ith_bit(int i,int j,int n){
+        int a=(~0<<(j+1));
+        int b=(1<<i)-1;
+        System.out.println((a|b)&n);
+    }
+    public static boolean check_power_2(int n){
+        return ((n&(n-1))==0);
+    }
 
 
     public static void main(String args[]){
-        clear_last_ith_bit(15,2);
+        System.out.println(check_power_2(8));
     }
 }
