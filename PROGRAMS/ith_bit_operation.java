@@ -22,9 +22,12 @@ public class ith_bit_operation{
             set_bit(i,n);
         }
     }
+    public static void clear_last_ith_bit(int n,int i){
+        System.out.println(((-1)<<i)&n);
+    }
 
 
     public static void main(String args[]){
-        update_ith_bit(1,10,1);
+        clear_last_ith_bit(15,2);
     }
 }
