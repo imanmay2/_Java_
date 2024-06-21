@@ -20,17 +20,37 @@ public class OOPS{
 
 
 
-        Student s1=new Student("Anwesha");
-        System.out.println("Name is: "+ s1.name);
+        Student s1=new Student();
+        s1.name="Anwesha";
+        s1.roll=1;
+        s1.passwd="hello";
+        s1.marks[0]=100;
+        s1.marks[1]=90;
+        s1.marks[2]=80;
+
+        Student s2=new Student(s1);         //copy of the constructor..
+        s2.passwd="xyz";
+        for(int i=0;i<3;i++){
+            System.out.println(s2.marks[i]);
+        }
     }
 }
 
 
 class Student{
     String name;
-    Student(String name){
+    int roll;
+    String passwd;
+    int[] marks=new int[3];
+    Student(){
         System.out.println("Constrcutor is being deifned....");
         this.name=name;
+    }
+    Student(Student s1){
+        this.name=s1.name;
+        this.roll=s1.roll;
+        this.passwd=s1.passwd;
+        this.marks=s1.marks;
     }
 }
 
