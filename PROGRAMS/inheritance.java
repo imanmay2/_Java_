@@ -16,7 +16,6 @@ class Animal{
     void eat(){
         System.out.println("Eats");
     }
-
     void breathe(){
         System.out.println("Breathes");
     }
