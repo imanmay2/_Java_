@@ -30,6 +30,7 @@ public class OOPS{
 
         Student s2=new Student(s1);         //copy of the constructor..
         s2.passwd="xyz";
+        s1.marks[1]=100;
         for(int i=0;i<3;i++){
             System.out.println(s2.marks[i]);
         }
@@ -46,11 +47,24 @@ class Student{
         System.out.println("Constrcutor is being deifned....");
         this.name=name;
     }
+
+
+
+    // This is a shallow copy.....
+    // Student(Student s1){
+    //     this.name=s1.name;
+    //     this.roll=s1.roll;
+    //     this.passwd=s1.passwd;
+    //     this.marks=s1.marks;
+    // }
+
+    //deep copy...
     Student(Student s1){
         this.name=s1.name;
         this.roll=s1.roll;
-        this.passwd=s1.passwd;
-        this.marks=s1.marks;
+        for(int i=0;i<marks.length;i++){
+            this.marks[i]=s1.marks[i];
+        }
     }
 }
 
