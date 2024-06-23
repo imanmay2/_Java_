@@ -15,11 +15,14 @@ abstract class Animal{
     abstract void walk();
 }
 
+
+
 class Horse extends Animal{
     void walk(){
         System.out.println("Horse walks");
     }
 }
+
 
 class Chicken extends Animal{
     void walk(){
