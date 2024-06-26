@@ -5,11 +5,12 @@ public class decrease_num_recursion{
     public static void decrease(int n){
         if(n==1){
             System.out.println(n);
+            return;
         }
-        else{
-            System.out.println(n);
-            decrease(n-1);
-        }
+
+        System.out.println(n);
+        decrease(n-1);
+        
     }
 
 
