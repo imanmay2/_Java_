@@ -20,3 +20,5 @@ public class calculate_power_x{
         System.out.println(calculate(x,n));
     }
 }
+
+//time complexity is : O(n)
