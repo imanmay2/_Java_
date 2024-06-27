@@ -8,6 +8,21 @@ public class calculate_power_x{
             return 1;
         }
         return x*(calculate(x,n-1));
+    }       //time complexity is : O(n).
+
+
+
+    public static int optimize_calculate(int x,int n){
+        int h;
+        if(n==0){
+            return 1;
+        }
+        int h1=optimize_calculate(x,n/2);
+        h=h1*h1;
+        if(x%2!=0){
+            h=x*h;
+        }
+        return h;
     }
 
 
@@ -17,8 +32,7 @@ public class calculate_power_x{
         int x=sc.nextInt();
         System.out.println("Enter the power : ");
         int n=sc.nextInt();
-        System.out.println(calculate(x,n));
+        System.out.println(optimize_calculate(x,n));
     }
 }
 
-//time complexity is : O(n)
