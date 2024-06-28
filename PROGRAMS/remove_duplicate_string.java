@@ -1,0 +1,27 @@
+// WAP that will remove the duplicate elements from the string..
+
+
+import java.util.*;
+public class remove_duplicate_string{
+    public static String remove(String str){
+        int idx;
+        char chr;
+        StringBuilder sb=new StringBuilder("");
+        boolean[] arr=new boolean[26];
+        for(int i=0;i<str.length();i++){
+            chr=str.charAt(i);
+            int char_arr=chr-'a';
+            if(arr[char_arr]==false){
+                sb.append(chr);
+                arr[char_arr]=true;
+            }
+        }
+        return sb.toString();
+    }
+
+
+
+    public static void main(String args[]){
+        System.out.print(remove("appnacollege"));
+    }
+}
