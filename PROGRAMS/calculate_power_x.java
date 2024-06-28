@@ -19,7 +19,7 @@ public class calculate_power_x{
         }
         int h1=optimize_calculate(x,n/2);
         h=h1*h1;
-        if(x%2!=0){
+        if(n%2!=0){
             h=x*h;
         }
         return h;
