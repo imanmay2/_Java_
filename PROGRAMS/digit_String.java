@@ -17,10 +17,24 @@ public class digit_String{
         sb.append(" ");
         return dig_str(num,arr,i+1,sb);
     }
+
+
+
+    public static void dig_str_2(int num,String arr[]){
+        //base case ....
+        if(num==0){
+            return;
+        }
+        int last_dig=num%10;
+        num=num/10;
+        dig_str_2(num,arr);
+        System.out.print(arr[last_dig]+" ");
+    }
     public static void main(String args[]){
         String[] arr={"zero","one","two","three","four","five","six","seven","eight","nine"};
         int num=4567;
         StringBuilder sb=new StringBuilder("");
-        System.out.print(dig_str(num,arr,0,sb));
+        System.out.println(dig_str(num,arr,0,sb));
+        dig_str_2(num,arr);
     }
 }
