@@ -1,7 +1,7 @@
 // Write a program that will sort an array using quick sort algorithm...
 
 
-public class quick_sort{
+public class quick_sort{ 
     public static void quick_sort(int arr[],int si,int ei){
         if(si>=ei){
             return;
@@ -12,8 +12,8 @@ public class quick_sort{
     }
 
 
-    public static int partition(int arr[],int si,int ei);{
-        int i=-1;
+    public static int partition(int arr[],int si,int ei){
+        int i=si-1;
         int pivot=arr[ei];
         for(int j=si;j<ei;j++){
             if(arr[j]<=pivot){
@@ -24,7 +24,7 @@ public class quick_sort{
             }
         }
         i++;
-        int temp=pivot;
+        int temp=arr[ei];
         arr[ei]=arr[i];
         arr[i]=temp;
         return i;
@@ -40,7 +40,7 @@ public class quick_sort{
 
 
     public static void main(String args[]){
-        int arr[]={6,3,9,8,2,5};
+        int arr[]={6,3,9,8,2,5,-1};
         quick_sort(arr,0,arr.length-1);
         print(arr);
     }
