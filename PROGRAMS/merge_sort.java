@@ -13,7 +13,7 @@ public class merge_sort{
         }
         int mid=(si+ei)/2;
         merge_sort(arr,si,mid);
-        merge_sort(arr,mid,ei);
+        merge_sort(arr,mid+1,ei);
         merge(arr,si,mid,ei);
     }
 
