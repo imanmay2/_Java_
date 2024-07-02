@@ -8,7 +8,7 @@ public class merge_sort{
     }
     public static void merge_sort(int arr[],int si,int ei){
         //base case
-        if(si>=ei){
+        if(si==ei){
             return;
         }
         int mid=(si+ei)/2;
