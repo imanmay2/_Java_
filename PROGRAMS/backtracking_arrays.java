@@ -1,6 +1,6 @@
 // Write a program that will bactrack the array...
 
-
+//Time complexity is : O(n)...
 public class backtracking_arrays{
     public static void backtrack(int arr[],int i){
         //base case
