@@ -15,10 +15,11 @@ public class MultiDimensionalArrayList{
         main_list.add(list2);
         main_list.add(list3);
         for(int i=0;i<main_list.size();i++){
-            ArrayList<Integer> curr=new ArrayList<>();
+            ArrayList<Integer> curr=main_list.get(i);
             for(int j=0;j<curr.size();j++){
-                System.out.println(curr.get(j));
+                System.out.print(curr.get(j)+" ");
             }
+            System.out.println();
         }
     }
 }
