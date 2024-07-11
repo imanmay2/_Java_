@@ -5,23 +5,24 @@ import java.util.*;
 public class monotonocity_AL{
     public static boolean check_monotonic(ArrayList<Integer> list){
         int check;  
-        if(list.get(0)>list.get(1)){
+        if(list.get(0)>=list.get(1)){
             check=1;
         }
         else{
             check=0;
         }
         
-        for(int i=1;i<list.size()-1;i++){
-            if(check==1 && list.get(i)>list.get(i+1)){
+        for(int i=0;i<list.size()-1;i++){
+            if(list.get(i)==list.get(i+1)){
+                continue;
+            }
+            else if(check==1 && list.get(i)>list.get(i+1)){
                 check=1;
             }
             else if(check==0 && list.get(i)<list.get(i+1)){
                 check=0;
             }
-            else if(list.get(i)==list.get(i+1)){
-                continue;
-            }
+            
             else{
                 return false;
             }
