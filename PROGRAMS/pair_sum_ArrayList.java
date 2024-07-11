@@ -5,6 +5,9 @@ public class pair_sum_ArrayList{
     public static void sum_pair_1(ArrayList<Integer> list,int target){
         int lp=0;
         int rp=list.size()-1;
+
+
+        //Time complexity: O(n)
         while(lp<rp){
             if(target==(list.get(lp)+list.get(rp))){
                 System.out.print("Pair found!!"+ list.get(lp)+" "+list.get(rp));
