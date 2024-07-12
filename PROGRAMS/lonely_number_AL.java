@@ -7,6 +7,9 @@ public class lonely_number_AL{
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the range of the ArrayList : ");
         int n=sc.nextInt();
+
+
+        //Adding elements in the ArrayList...
         for(int i=0;i<n;i++){
             System.out.println("Enter the number to be inserted : ");
             list.add(sc.nextInt());
@@ -14,17 +17,7 @@ public class lonely_number_AL{
 
 
         for(int i=0;i<list.size();i++){
-            for(int j=0;j<list.size();j++){
-                if((list.get(i)+1)==list.get(j) || (list.get(i)-1)==list.get(j)){
-                    continue;
-                }
-                else if(i!=j && list.get(i)==list.get(j)){
-                    continue;
-                }
-                else{
-                    System.out.print("Lonely numbers are : "+ list.get(i)+" ");
-                }
-            }
+            
         }
 
     }
