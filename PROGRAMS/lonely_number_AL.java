@@ -17,7 +17,19 @@ public class lonely_number_AL{
 
 
         for(int i=0;i<list.size();i++){
-            
+            for(int j=0;j<list.size();j++){
+                if(i==j){
+                    continue;
+                }
+                else{
+                    if((list.get(i)+1)==list.get(j) || (list.get(i)-1)==list.get(j) || list.get(i)=y=list.get(j)){
+                        System.out.print(list.get(i)+" ");
+                    }
+                    // else{
+                    //     System.out.print(list.get(i)+" ");
+                    // }
+                }
+            }
         }
 
     }
