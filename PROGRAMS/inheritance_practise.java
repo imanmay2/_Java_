@@ -14,7 +14,7 @@ public class inheritance_practise{
 }
 
 
-class Animal{
+class Animal{               //Parent Class.
     void breathe(){
         System.out.println("Animal breathes");
     }
@@ -26,7 +26,7 @@ class Animal{
 }
 
 
-class Fish extends Animal{      // Implementing Inheritance.
+class Fish extends Animal{      // Child Class---->Implementing Inheritance.
     void swim(){
         System.out.println("Fish swims");
     }
