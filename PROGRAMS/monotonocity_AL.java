@@ -22,7 +22,6 @@ public class monotonocity_AL{
             else if(check==0 && list.get(i)<list.get(i+1)){
                 check=0;
             }
-            
             else{
                 return false;
             }
@@ -36,7 +35,6 @@ public class monotonocity_AL{
         int n=sc.nextInt();
         for(int i=0;i<n;i++){
             System.out.println("Enter the number to be inserted : ");
-
             list.add(sc.nextInt());
         }
         System.out.print(check_monotonic(list));
