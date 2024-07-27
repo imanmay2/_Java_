@@ -9,6 +9,9 @@ public class classes_objects{
         b1.setPass("hello@1234");   // settters.
         System.out.println(b1.getPass());   // getters.
 
+
+        Student s1=new Student("Anwesha");
+        System.out.println(s1.name);
     }
 }
 
@@ -28,8 +31,17 @@ class bankAcc{
     public void setPass(String password){
         this.password=password;
     }
-
-    private String getPass(){
+    public String getPass(){
         return this.password;           // passwords can't be accessed.
     }
+}
+
+
+class Student {
+    String name;
+    Student(String name){       //constructor
+        this.name=name;
+    }
+
+
 }
