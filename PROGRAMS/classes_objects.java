@@ -10,8 +10,18 @@ public class classes_objects{
         System.out.println(b1.getPass());   // getters.
 
 
-        Student s1=new Student("Anwesha");
-        System.out.println(s1.name);
+        Student s1=new Student();
+        
+
+
+        // copying the data from s1 object to a new object...
+        Student s2=new Student(s1);         // shallow copy...
+        
+
+        System.out.println(s2.name);
+        System.out.println(s2.roll);
+        System.out.println(s2.password);
+
     }
 }
 
@@ -38,10 +48,17 @@ class bankAcc{
 
 
 class Student {
-    String name;
-    Student(String name){       //constructor
-        this.name=name;
+    String name="Anwesha";
+    int roll=1;
+    String password="hello@1234";
+    // Student(String name){       //constructor
+    //     this.name=name;
+    // }
+}
+class Student{
+    Student(Student s1){
+        this.name=s1.name;
+        this.password=s1.password;
+        this.roll=s1.roll;
     }
-
-
 }
