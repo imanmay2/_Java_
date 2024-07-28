@@ -1,10 +1,11 @@
 import java.util.*;
 public class LinkedList_basics{
     public static void main(String args[]){
-        addFirst(4);
-        addFirst(3);
-        addFirst(2);
-        addFirst(1);
+        LinkedList ll=new LinkedList();
+        ll.addFirst(2);
+        ll.addFirst(1);
+        ll.addLast(3);
+        ll.addLast(4);
     }
 }
 
@@ -37,3 +38,15 @@ public void addFirst(int data){
 }
 
 
+
+//Add_Last in the Linked_list. (tail will get change every time).
+
+public void addLast(int data){
+    Node newNode=new Node(data);
+    if(head==null){
+        head=tail=newNode;
+        return;
+    }
+    tail.next=newNode;
+    tail=newNode;
+}
