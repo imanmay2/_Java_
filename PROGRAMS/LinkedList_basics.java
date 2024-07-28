@@ -29,7 +29,8 @@ public static int size;
 // Add_First in the linked list.(Head wil change every time).
 public void addFirst(int data){
     Node newNode=new Node(data);
-    if(head==null){
+    if(head==null)
+    {
         head=tail=newNode;
         return;
     }
