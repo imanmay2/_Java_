@@ -3,7 +3,10 @@
 
 import java.util.*;
 public class lonely_number_AL{
-    public static ArrayList<Integer> 
+    public static ArrayList<Integer> lonely_num(ArrayList<Integer> arr){
+        
+
+    }
 
 
 
