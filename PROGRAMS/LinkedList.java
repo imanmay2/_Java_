@@ -83,6 +83,29 @@ public class LinkedList{
         
     }
 
+    public  void search_element(int ele){
+        Node temp=head;
+        int i=0;
+        int f=0;
+        while(temp!=null){
+            if(ele==temp.data){
+                System.out.print("Element found at index : "+ i);
+                f=1;
+                break;
+            }
+            i++;
+            temp=temp.next;
+        }
+        if(f==0){
+            System.out.print("Element not found in the Linked List.");
+        }
+    }
+
+
+    public void recursive_search(int key){
+        
+    }
+
 
     public static void main(String args[]){
         LinkedList ll=new LinkedList();
@@ -92,13 +115,15 @@ public class LinkedList{
         ll.addLast(4);
         ll.addLast(5);
         ll.print_LL();
-        System.out.println();
-        ll.addElement(1,6);
-        ll.print_LL();
-        System.out.println("The size of the LinkedList is : "+size);
+        // System.out.println();
+        // ll.addElement(1,6);
+        // ll.print_LL();
+        // System.out.println("The size of the LinkedList is : "+size);
 
-        ll.removeFirst();
-        ll.print_LL();
-        System.out.println("The size of the LinkedList is : "+size);
+        // ll.removeFirst();
+        // ll.print_LL();
+        // System.out.println("The size of the LinkedList is : "+size);
+
+        ll.search_element(3);
     }
 }
