@@ -97,14 +97,24 @@ public class LinkedList{
             temp=temp.next;
         }
         if(f==0){
-            System.out.print("Element not found in the Linked List.");
+            System.out.println("Element not found in the Linked List.");
         }
     }
 
 
-    public void recursive_search(int key){
-        
+    public void reverse(){
+        Node prev=null;
+        Node curr=tail=head;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
     }
+
 
 
     public static void main(String args[]){
@@ -125,5 +135,7 @@ public class LinkedList{
         // System.out.println("The size of the LinkedList is : "+size);
 
         ll.search_element(3);
+        ll.reverse();
+        ll.print_LL();
     }
 }
