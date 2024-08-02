@@ -116,14 +116,46 @@ public class LinkedList{
      }
 
 
+     public void delete_Node_from_end(int n){
+        Node temp=head;
+        int sz=0;
+        while(temp!=null){
+            temp=temp.next;
+            sz++;
+        }
+
+        if(n==sz){
+            head=head.next;
+            return;
+        }
+
+        int i=1;
+        Node prev=head;
+        int toFind=sz-n;
+        while(i<toFind){
+            prev=prev.next;
+            i++;
+        }
+
+        prev.next=prev.next.next;
+        return;
+     }
+
+
 
     public static void main(String args[]){
         LinkedList ll=new LinkedList();
-        ll.addFirst(1);
-        ll.addFirst(2);     //this is not calling...
+        // ll.addFirst(1);
+        // ll.addFirst(2);     //this is not calling...
+        // ll.addLast(3);
+        // ll.addLast(4);
+        // ll.addLast(5);
+        ll.addLast(1);
+        ll.addLast(2);
         ll.addLast(3);
         ll.addLast(4);
         ll.addLast(5);
+
         ll.print_LL();
         // System.out.println();
         // ll.addElement(1,6);
@@ -134,8 +166,11 @@ public class LinkedList{
         // ll.print_LL();
         // System.out.println("The size of the LinkedList is : "+size);
 
-        ll.search_element(3);
-        ll.reverse();
+        // ll.search_element(3);
+        // ll.reverse();
+        // ll.print_LL();
+
+        ll.delete_Node_from_end(3);
         ll.print_LL();
     }
 }
