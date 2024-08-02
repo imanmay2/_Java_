@@ -89,7 +89,7 @@ public class LinkedList{
         int f=0;
         while(temp!=null){
             if(ele==temp.data){
-                System.out.print("Element found at index : "+ i);
+                System.out.println("Element found at index : "+ i);
                 f=1;
                 break;
             }
@@ -114,32 +114,31 @@ public class LinkedList{
         }
         head=prev;
      }
-
-
      public void delete_Node_from_end(int n){
-        Node temp=head;
         int sz=0;
+        Node temp=head;
         while(temp!=null){
-            temp=temp.next;
             sz++;
+            temp=temp.next;
         }
 
         if(n==sz){
             head=head.next;
             return;
         }
-
-        int i=1;
         Node prev=head;
+        int i=1;
         int toFind=sz-n;
         while(i<toFind){
             prev=prev.next;
             i++;
         }
-
-        prev.next=prev.next.next;
+        prev.next=prev.next.next;       //Doubtful in this Statement....
         return;
      }
+
+
+
 
 
 
