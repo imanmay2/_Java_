@@ -177,6 +177,19 @@ public class LinkedList{
         return true;
     }
 
+
+    public boolean check_cycle_LL(){
+        Node fast=head;
+        Node slow=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(fast==slow){
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String args[]){
         LinkedList ll=new LinkedList();
         // ll.addFirst(1);
@@ -184,27 +197,33 @@ public class LinkedList{
         // ll.addLast(3);
         // ll.addLast(4);
         // ll.addLast(5);
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(2);
-        ll.addLast(2);
-        ll.addLast(1);
+        // ll.addLast(1);
+        // ll.addLast(2);
+        // ll.addLast(2);
+        // ll.addLast(2);
+        // ll.addLast(1);
 
-        ll.print_LL();
-        // System.out.println();
-        // ll.addElement(1,6);
         // ll.print_LL();
-        // System.out.println("The size of the LinkedList is : "+size);
+        // // System.out.println();
+        // // ll.addElement(1,6);
+        // // ll.print_LL();
+        // // System.out.println("The size of the LinkedList is : "+size);
 
-        // ll.removeFirst();
-        // ll.print_LL();
-        // System.out.println("The size of the LinkedList is : "+size);
+        // // ll.removeFirst();
+        // // ll.print_LL();
+        // // System.out.println("The size of the LinkedList is : "+size);
 
-        // ll.search_element(3);
-        // ll.reverse();
-        // ll.print_LL();
+        // // ll.search_element(3);
+        // // ll.reverse();
+        // // ll.print_LL();
 
-        // ll.delete_Node_from_end(3);
-        System.out.print(ll.check_pallindrome());
+        // // ll.delete_Node_from_end(3);
+        // System.out.print(ll.check_pallindrome());
+
+        head=new Node(1);
+        head.next=new Node(2);
+        head.next.next=new Node(3);
+        // head.next.next.next=head;
+        System.out.println(ll.check_cycle_LL());
     }
 }
