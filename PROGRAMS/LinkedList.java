@@ -178,7 +178,7 @@ public class LinkedList{
     }
 
 
-    public boolean check_cycle_LL(){
+    public static boolean check_cycle_LL(){
         Node fast=head;
         Node slow=head;
         while(fast!=null && fast.next!=null){
@@ -189,6 +189,34 @@ public class LinkedList{
             }
         }
         return false;
+    }
+
+    public void remove_cycle_LL(){
+        Node fast=head;
+        Node slow=head;
+        boolean f=false;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                f=true;
+                break;
+            }
+        }
+        if(f==true){
+            Node prev=null;
+            slow=head;
+            while(fast!=slow){
+                prev=fast;
+                fast=fast.next;
+                slow=slow.next;
+            }
+            prev.next=null;
+            System.out.println("Cycle/Loop removed from the LinkedList.");
+        }
+        else{
+            System.out.println("The Linked List is not in Loop/Cycle.");
+        }
     }
     public static void main(String args[]){
         LinkedList ll=new LinkedList();
@@ -223,7 +251,8 @@ public class LinkedList{
         head=new Node(1);
         head.next=new Node(2);
         head.next.next=new Node(3);
-        // head.next.next.next=head;
-        System.out.println(ll.check_cycle_LL());
+        head.next.next.next=head;
+        ll.remove_cycle_LL();
+        ll.print_LL();
     }
 }
