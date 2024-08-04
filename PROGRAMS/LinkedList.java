@@ -249,9 +249,11 @@ public class LinkedList{
         // System.out.print(ll.check_pallindrome());
 
         head=new Node(1);
-        head.next=new Node(2);
+        Node temp=new Node(2);
+        head.next=temp;
         head.next.next=new Node(3);
-        head.next.next.next=head;
+        head.next.next.next=new Node(4);
+        head.next.next.next.next=temp;
         ll.remove_cycle_LL();
         ll.print_LL();
     }
