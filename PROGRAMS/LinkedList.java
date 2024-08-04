@@ -141,21 +141,21 @@ public class LinkedList{
 
     //Steps for checking pallindrome: 1. Find the middle Node. 2. Reverse the 2nd half linkedlist. 3.Comapre the 1st and the 2nd half linkedlist.
 
-    public Node findNode(Node head){
+    public Node findMid(Node head){
         Node slow=head;
         Node fast=head;
-        while(fast!=null && fast.next!=null){
+        while(fast!=null && fast.next!=null){       //doubt in this &&
             slow=slow.next;
             fast=fast.next.next;
         }
         return slow;
     }
 
-    public boolean pallindrome(){
-        if(head==null || head.next==null){
-            return true;
-        }
-        Node midNode=findNode(head);
+    public boolean check_pallindrome(){
+    if(head==null || head.next==null){
+        return true;
+    }
+        Node midNode=findMid(head);
         Node prev=null;
         Node curr=midNode;
         Node next;
@@ -205,6 +205,6 @@ public class LinkedList{
         // ll.print_LL();
 
         // ll.delete_Node_from_end(3);
-        System.out.print(ll.pallindrome());
+        System.out.print(ll.check_pallindrome());
     }
 }
