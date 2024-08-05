@@ -195,7 +195,7 @@ public class LinkedList{
         Node fast=head;
         Node slow=head;
         boolean f=false;
-        while(fast!=null && fast.next!=null){
+        while(fast!=null && fast.next!=null){           //doubt in this step..
             slow=slow.next;
             fast=fast.next.next;
             if(slow==fast){
@@ -218,6 +218,56 @@ public class LinkedList{
             System.out.println("The Linked List is not in Loop/Cycle.");
         }
     }
+
+    private Node getMid(Node head){
+        Node fast=head.next;            //doubt in this step....
+        Node slow=head;
+        while(fast!=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+        }
+        return slow;
+    }
+
+
+    private Node merge(Node head1,Node head2){
+        Node merge_LL=new Node(-1);
+        Node temp=merge_LL;
+        while(head1!=null && head2!=null){
+            if(head1.data<head2.data){
+                temp.next=head1;
+                temp=temp.next;
+                head1=head1.next;
+            }
+            else{
+                temp.next=head2;
+                temp=temp.next;
+                head2=head2.next;
+            }
+        }
+        while{head!=null}{
+            temp.next=
+        }
+
+        }
+    }
+
+    // Merge Sort on a LinkedList.
+    public void merge_sort(Node head){          
+        //basecase.
+        if(head==null || head.next==null){
+            return head;
+        }
+        Node mid_Node=getMid(head);
+        Node rightNode=mid_Node.next;
+        Node newLeft=merge_sort(head);
+        Node newRight=merge_sort(rightNode);
+        return merge(newLeft,newRight);
+    }
+
+
+
+
     public static void main(String args[]){
         LinkedList ll=new LinkedList();
         // ll.addFirst(1);
