@@ -219,51 +219,103 @@ public class LinkedList{
         }
     }
 
-    private Node getMid(Node head){
-        Node fast=head.next;            //doubt in this step....
+
+
+    private Node getNode(Node head){
         Node slow=head;
+        Node fast=head.next;    //doubt.
         while(fast!=null && fast.next!=null){
-            fast=fast.next.next;
             slow=slow.next;
+            fast=fast.next.next;
         }
         return slow;
     }
 
 
     private Node merge(Node head1,Node head2){
-        Node merge_LL=new Node(-1);
-        Node temp=merge_LL;
+        Node merged_LL=new Node(-1);
+        Node temp=merged_LL;
         while(head1!=null && head2!=null){
-            if(head1.data<head2.data){
+            if(head1.data<=head2.data){
                 temp.next=head1;
-                temp=temp.next;
                 head1=head1.next;
+                temp=temp.next;
             }
             else{
                 temp.next=head2;
-                temp=temp.next;
                 head2=head2.next;
+                temp=temp.next;
             }
+        while(head1!=null){
+            temp.next=head1;
+            head1=head1.next;
+            temp=temp.next;
         }
-        while{head!=null}{
-            temp.next=
+        
+        while(head2!=null){
+            temp.next=head2;
+            head2=head2.next;
+            temp=temp.next;
         }
-
         }
+        return merged_LL.next;
     }
 
     // Merge Sort on a LinkedList.
-    public void merge_sort(Node head){          
-        //basecase.
+    public Node merge_sort(Node head){
         if(head==null || head.next==null){
-            return head;
+            return head; //basecase.
         }
-        Node mid_Node=getMid(head);
-        Node rightNode=mid_Node.next;
-        Node newLeft=merge_sort(head);
-        Node newRight=merge_sort(rightNode);
-        return merge(newLeft,newRight);
+        Node mid_node=getNode(head);
+        Node right=mid_node.next;
+        mid_node.next=null;
+        Node left_node=merge_sort(head);
+        Node right_node=merge_sort(right);
+        return merge(left_node,right_node);
     }
+
+
+
+    //zig zag LinkedList.
+    public void zig_zag_LL(){
+
+        //Step:1 ..to find the middle node..
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        Node mid_Node=slow;  
+        
+        //Step:2 , reverse the 2nd half of the LinkedList.
+        Node prev=null;
+        Node curr=mid_Node;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+
+       
+
+        // Step : 3...    zig-zag...
+        Node right_=prev;
+        Node left_=head;
+        Node nextL,nextR;
+        while(right_!=null && left_!=null){
+            nextL=left_.next;
+            left_.next=right_;
+            nextR=right_.next;
+            right_.next=nextL;
+            left_=nextL;
+            right_=nextR;
+        }  
+    }
+
+
 
 
 
@@ -298,13 +350,17 @@ public class LinkedList{
         // // ll.delete_Node_from_end(3);
         // System.out.print(ll.check_pallindrome());
 
-        head=new Node(1);
-        Node temp=new Node(2);
-        head.next=temp;
-        head.next.next=new Node(3);
-        head.next.next.next=new Node(4);
-        head.next.next.next.next=temp;
-        ll.remove_cycle_LL();
+       ll.addLast(5);
+       ll.addLast(4);
+       ll.addLast(3);
+       ll.addLast(2);
+       ll.addLast(1);
+       ll.print_LL();
+    //    ll.merge_sort(ll.head);
+    //    ll.print_LL();
+
+
+        ll.zig_zag_LL();
         ll.print_LL();
     }
 }
