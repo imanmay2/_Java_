@@ -14,7 +14,7 @@ public class Double_LL{
     public static int size;
 
     //add 
-    public void addFirst(int data){
+    public void addFirst(int data){             //Not working...
         Node newNode=new Node(data);
         size++;
         if(head==null){
@@ -24,6 +24,18 @@ public class Double_LL{
         newNode.next=head;
         head.prev=newNode;
         head=newNode;
+    }
+
+    public void addLast(int data){
+        Node newNode=new Node(data);
+        size++;
+        if(head==null){
+            head=tail=null;
+            return;
+        }
+        tail.next=newNode;
+        newNode.prev=tail;
+        tail=newNode;
     }
 
 
@@ -42,6 +54,24 @@ public class Double_LL{
         size--;
     }
 
+
+    public void removeLast(){       //Bug yet to be fixed...
+        if(head==null){
+            System.out.println("The LinkedList is Empty!!");
+            return;
+        }
+        else if(size==1){
+            head=tail=null;
+            size=0;
+            return;
+        }
+        tail=tail.prev;
+        tail.next=null;
+        size--;
+    }
+
+
+
     //print  a Double_LinkedList.
     public void print_LL(){
         Node temp=head;
@@ -54,11 +84,13 @@ public class Double_LL{
 
     public static void main(String args[]){
         LinkedList ll=new LinkedList();
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(3);
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
         ll.print_LL();
         // ll.removeFirst();
+        // ll.print_LL();
+        // ll.removeLast();
         // ll.print_LL();
     }
 }
