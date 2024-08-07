@@ -82,12 +82,21 @@ public class Double_LL{
         System.out.print("null");
     }
 
+
     public static void main(String args[]){
         LinkedList ll=new LinkedList();
         ll.addLast(1);
         ll.addLast(2);
         ll.addLast(3);
         ll.print_LL();
+        System.out.println();
+        ll.removeFirst();
+        ll.print_LL();
+        System.out.println();
+        ll.removeLast();
+        ll.print_LL();
+        // ll.removeFirst();
+        // ll.print_LL();
         // ll.removeFirst();
         // ll.print_LL();
         // ll.removeLast();
