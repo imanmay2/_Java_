@@ -82,6 +82,20 @@ public class Double_LL{
         System.out.print("null");
     }
 
+    public void reverse(){
+        Node prev=null;
+        Node curr=tail=head;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            curr.prev=next;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    }
+
 
     public static void main(String args[]){
         LinkedList ll=new LinkedList();
@@ -90,11 +104,14 @@ public class Double_LL{
         ll.addLast(3);
         ll.print_LL();
         System.out.println();
-        ll.removeFirst();
+        ll.reverse();
         ll.print_LL();
-        System.out.println();
-        ll.removeLast();
-        ll.print_LL();
+
+        // ll.removeFirst();
+        // ll.print_LL();
+        // System.out.println();
+        // ll.removeLast();
+        // ll.print_LL();
         // ll.removeFirst();
         // ll.print_LL();
         // ll.removeFirst();
