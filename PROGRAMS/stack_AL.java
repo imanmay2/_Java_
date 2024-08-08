@@ -2,7 +2,7 @@
 
 import java.util.*;
 public class stack_AL{
-    static class stack{
+    static class Stack{
         static ArrayList<Integer> list=new ArrayList<>();
 
 
@@ -39,7 +39,7 @@ public class stack_AL{
         s.push(2);
         s.push(3);
         s.push(4);
-        while(s.size()!=0){
+        while(list.size()!=0){
             s.pop();
         }
     }
