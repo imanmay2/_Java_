@@ -1,37 +1,46 @@
-// Implementing Stack using ArrayList.
+// Implementing Stack via ArrayList.
 
 import java.util.*;
 public class stack_AL{
     static class Stack{
         static ArrayList<Integer> list=new ArrayList<>();
-
+        public static boolean isEmpty(){
+            if(list.size()==0){
+                return true;
+            }
+            return false;
+        }
 
         public static void push(int n){
             list.add(n);
-            System.out.println("Item pushed!!");
         }
 
-
         public static void peek(){
-            if(list.size()==0){
-                System.out.println("List is empty.");
+            if(isEmpty()){
+                System.out.println("Stack is Empty.");
                 return;
             }
-            System.out.println("The Peek element of the Stack is "+list.get(list.size()-1));
+            System.out.println(list.get(list.size()-1));
+            return;
         }
 
 
         public static int pop(){
-            if(list.size()==0){
-                System.out.println("Stack is empty");
-                return 0;
+            if(isEmpty()){
+                System.out.println("Stack is Empty.");
+                return -1;
             }
-            int p=list.size()-1;
-            System.out.println("The poped element is "+list.remove(list.size()-1));
-            return p;
+            int val=list.get(list.size()-1);
+            // System.out.println("The popped element is : "+val);
+            list.remove(list.size()-1);
+            return val;
         }
 
-        
+        public static void print_stack(){
+            for(int i=list.size()-1;i>=0;i--){
+                System.out.println(list.get(i));
+            }
+        }
     }
     public static void main(String args[]){
         Stack s=new Stack();
@@ -39,7 +48,8 @@ public class stack_AL{
         s.push(2);
         s.push(3);
         s.push(4);
-        while(list.size()!=0){
+        while(!s.isEmpty()){
+            s.peek();
             s.pop();
         }
     }
