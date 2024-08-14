@@ -8,9 +8,11 @@ public class stock_span_problem{
         for(int i=0;i<list.size();i++){
             if(i==0){
                 s.push(i);
+                span.add(1);
             }
             else if(i==list.size()-1){
-                s.push(i+1)
+                s.push(i+1);
+                span.add();
             }
         }
     }
