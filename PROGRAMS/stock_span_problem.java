@@ -1,3 +1,0 @@
-// Write a program that will calculate the Stocks of the company...
-
-
