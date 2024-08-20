@@ -33,9 +33,7 @@ public class lonely_number_AL{
             System.out.println("Enter the number : ");
             arr.add(sc.nextInt());
         }
-
         System.out.println();
         System.out.println(lonely_num(arr));
-        
     }
 }
