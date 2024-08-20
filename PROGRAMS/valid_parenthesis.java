@@ -36,5 +36,4 @@ public class valid_parenthesis {
     String s=sc.nextLine();
     check_parenthesis(s);
    }
-
 }
