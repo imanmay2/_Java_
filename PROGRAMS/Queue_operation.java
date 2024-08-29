@@ -23,19 +23,20 @@ public class Queue_operation {
                 System.out.println("Queue is full !!");
                 return;
             }
-            arr[0]=data;
             rear++;
+            arr[rear]=data;
+            
         }
 
         //Removing an element form the Queue.
         public static void remove(){
             if(isEmpty()){
-                System.out.println("Sorry, the Queue is full ! ");
+                System.out.println("Sorry, the Queue is Empty ! ");
                 return;
             }
 
             //removing element..
-            for(int i=0;i<rear-1;i++){
+            for(int i=0;i<rear;i++){
                 arr[i]=arr[i+1];
             }
             rear--;
@@ -55,7 +56,7 @@ public class Queue_operation {
         q.add(1);
         q.add(2);
         q.add(3);
-
+        q.add(5);
         while(!q.isEmpty()){
             q.peek();
             q.remove();
