@@ -1,0 +1,64 @@
+import java.util.*;
+public class Queue_operation {
+    static class Queue{
+        //initialisation.
+        static int arr[];
+        static int size;
+        static int rear;
+        Queue(int n){           //constructor.
+            arr=new int[n];
+            size=n;
+            rear=-1;
+        }
+
+        //Checking --if it's empty or not...
+        public static boolean isEmpty(){
+            return rear==-1;
+        }
+
+
+        //Adding element in the Queue.
+        public static void add(int data){
+            if(rear==size-1){
+                System.out.println("Queue is full !!");
+                return;
+            }
+            arr[0]=data;
+            rear++;
+        }
+
+        //Removing an element form the Queue.
+        public static void remove(){
+            if(isEmpty()){
+                System.out.println("Sorry, the Queue is full ! ");
+                return;
+            }
+
+            //removing element..
+            for(int i=0;i<rear-1;i++){
+                arr[i]=arr[i+1];
+            }
+            rear--;
+        }
+
+        public static void peek(){
+            if(isEmpty()){
+                System.out.println("The Queue is Empty!!");
+                return;
+            }
+            System.out.println(arr[0]);
+        }
+
+    }
+    public static void main(String args[]){
+        Queue q=new Queue(4);
+        q.add(1);
+        q.add(2);
+        q.add(3);
+
+        while(!q.isEmpty()){
+            q.peek();
+            q.remove();
+        }
+    }
+}
