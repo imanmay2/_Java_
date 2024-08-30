@@ -1,5 +1,5 @@
 import java.util.*;
-public class Queue_operation {
+public class Queue_operation_Array {
     static class Queue{
         //initialisation.
         static int arr[];
