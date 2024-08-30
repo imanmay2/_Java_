@@ -1,5 +1,5 @@
 import java.util.*;
-public class Queue_operation_Array {
+public class Queue_operation_Array{
     static class Queue{
         //initialisation.
         static int arr[];
@@ -16,7 +16,7 @@ public class Queue_operation_Array {
             return rear==-1;
         }
 
-
+        
         //Adding element in the Queue.
         public static void add(int data){
             if(rear==size-1){
@@ -25,7 +25,6 @@ public class Queue_operation_Array {
             }
             rear++;
             arr[rear]=data;
-            
         }
 
         //Removing an element form the Queue.
