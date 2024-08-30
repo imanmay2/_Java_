@@ -1,67 +1,79 @@
-//Implementing Stack using 
+// Implement Queues in the LinkedList.
+
 
 import java.util.*;
-public class Queue_LL {
+public class Queue_LL{
     static class Node{
-        static int data;
-        static Node next;
-        static int size=-1;
-        public Node(int data){     //constructor.
+        int data;
+        Node next;
+        Node(int data){
             this.data=data;
             this.next=null;
         }
+    }
 
-        //just initialization.
-        public static Node head;
-        public static Node tail;
+    static class Queue{
+        static Node head=null;
+        static Node tail=null;
 
-        //Adding element in the Queue.
+        //Checking for isEmpty()------
+        public static boolean isEmpty(){
+            if(head==null && tail==null){
+                return true;
+            }
+            return false;
+        }
+
+        //Adding element into the Queue.
         public static void add(int data){
             Node newNode=new Node(data);
-            size++;
-            if(head==null){
+            if(isEmpty()){
                 head=tail=newNode;
                 return;
             }
             tail.next=newNode;
             tail=newNode;
         }
-        //Removing element from the Queue.
+
+        //Removing the peek element from the FIFO order.
         public static int remove(){
-            int val;
-            if(size==-1){
-                System.out.println("Queue is Empty !!");
+            int r;
+            if(isEmpty()){
+                System.out.println("The Queue is empty.");
                 return -1;
             }
-
-
-            //if there is only 1 element in the Queue.
-            if(size==0){
-                val=head.data;
+            if(head==tail){
+                r=head.data;
                 head=tail=null;
-                size--;
-                return val;
+                return r;
             }
-            val=head.data;
+            r=head.data;
             head=head.next;
-            size--;
-            return val;
+            return r;
         }
 
 
+        //displaying the peek element from the Queue.
         public static int peek(){
-            if(size==-1){
-                System.out.println("Queue is Empty. ");
+            if(isEmpty()){
+                System.out.println("The Queue is Empty .");
                 return -1;
             }
-
-            return head.data;
+            int r=head.data;
+            return r;
         }
-
+        
     }
-
-    
     public static void main(String args[]){
+        Queue q1=new Queue();
+        q1.add(1);
+        q1.add(2);
+        q1.add(3);
+        q1.add(4);
 
+        while(!q1.isEmpty()){
+            System.out.println(q1.peek());
+            q1.remove();
+        }
     }
 }
