@@ -16,7 +16,7 @@ public class Queue_operation_Array{
             return rear==-1;
         }
 
-        
+
         //Adding element in the Queue.
         public static void add(int data){
             if(rear==size-1){
@@ -50,8 +50,8 @@ public class Queue_operation_Array{
             }
             System.out.println(arr[0]);
         }
-
     }
+    
     public static void main(String args[]){
         Queue q=new Queue(4);
         q.add(1);
