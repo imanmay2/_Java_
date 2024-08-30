@@ -18,39 +18,40 @@ public class circular_Queue {
 
         //Checking for the Full Queue.
         public static boolean isFull(){
-            return (rear==front && rear!=-1 && front!=-1);
+            return (rear+1)%size==front;
         }
 
         ////Adding elements into the Queue.
         public static void add(int data){
+            //Time Complexity : O(1)
             if(isFull()){
                 System.out.println("The Queue is already being fulled.");
                 return;
+            }
+            if(front==-1){
+                front=0;
             }
             rear=(rear+1)%size;
             arr[rear]=data;
 
             //this will execute for the first time only...
-            if(rear==0){
-                front=0;
-            }
         }
 
 
         //removing the element from the Queue.
         public static int remove(){
+            //Time Complexity : O(1)
             int r;
             if(isEmpty()){
                 System.out.println("The Queue is Empty.");
                 return -1;
             }
             //if there is only one element in the Queue.
-            if(rear==front && arr.length==1){
-                r=arr[rear];
+            r=arr[front];
+            if(rear==front){
                 front=rear=-1;
                 return r;
             }
-            r=arr[front];
             front=(front+1)%size;
             return r;
         }
@@ -58,6 +59,7 @@ public class circular_Queue {
 
         //displaying the peek element from the Queue.
         public static int peek(){
+            //Time Complexity : O(1)
             if(isEmpty()){
                 System.out.println("The Stack is Empty");
                 return -1;
