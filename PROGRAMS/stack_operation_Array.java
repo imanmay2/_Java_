@@ -37,11 +37,7 @@ public class stack_operation_Array {
                 System.out.println("The Stack is already being Empty.");
                 return -1;
             }
-
             int re=arr[ct];
-            for(int i=0;i<ct;i++){
-                arr[i]=arr[i+1];
-            }
             ct--;
             return re;
         }
