@@ -41,6 +41,5 @@ public class Stack_using_Deque {
             System.out.println(s1.peek());
             s1.pop();
         }
-
     }
 }
