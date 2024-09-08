@@ -14,5 +14,28 @@ public class lonely_number_AL{
             System.out.println("Enter the num : ");
             int num=sc.nextInt();
         }
+
+        ArrayList<Integer> list=new ArrayList<>();
+        // Collections.sort(list);
+
+        ArrayList<Integer> list_=new ArrayList<>();
+
+        //tarversing the array.
+        for(int i=0;i<list.size()-1;i++){
+            if(i==0 && (list.get(i)+1==list.get(i+1) || list.get(i)-1 ==list.get(i+1) || list.get(i) ==list.get(i+1))){
+                continue;
+            }
+            else if(i==list.size()-2 && (list.get(i)+1==list.get(i+1)  || list.get(i)-1==list.get(i+1) || list.get(i)==list.get(i+1))){
+                continue;
+            }
+            else if(list.get(i)==list.get(i+1) || list.get(i)==list.get(i-1) || list.get(i)+1==list.get(i+1) || list.get(i)+1==list.get(i-1) || list.get(i)-1==list.get(i-1) || list.get(i)-1==list.get(i+1)){
+                continue;
+            }
+            else{
+                list_.add(list.get(i));
+            }
+        }
+        System.out.println("The ArrayList is as follows : ");
+        System.out.println(list_);
     }
 }
