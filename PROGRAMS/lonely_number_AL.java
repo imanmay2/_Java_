@@ -5,35 +5,14 @@
 
 import java.util.*;
 public class lonely_number_AL{
-    public static ArrayList lonely_num(ArrayList<Integer> arr){
-        ArrayList<Integer> arr_=new ArrayList<>();
-        Collections.sort(arr);
-        for(int i=0;i<arr.size();i++){
-            if(i==0 && arr.get(i+1)!=arr.get(i)+1){
-                arr_.add(arr.get(i));
-            }
-            else if(i==arr.size()-2 && arr.get(i+1)!=arr.get(i)+1 && arr.get(i-1)!=arr.get(i)-1){
-                arr_.add(arr.get(i));
-            }
-            else if(arr.get(i+1)!=arr.get(i)+1 && arr.get(i-1)!=arr.get(i)-1){
-                 arr_.add(arr.get(i));
-            }
-        }
-        return arr_;
-    }
-
-
-
     public static void main(String args[]){
-        ArrayList<Integer> arr=new ArrayList<Integer>();
         Scanner sc=new Scanner(System.in);
-        System.out.print("Enter the Range of the ArrayList : ");
+        System.out.println("Enter the Range : ");
         int n=sc.nextInt();
+        //Accepting input from the user .
         for(int i=0;i<n;i++){
-            System.out.println("Enter the number : ");
-            arr.add(sc.nextInt());
+            System.out.println("Enter the num : ");
+            int num=sc.nextInt();
         }
-        System.out.println();
-        System.out.println(lonely_num(arr));
     }
 }
