@@ -5,7 +5,6 @@
 
 import java.util.*;
 public class lonely_number_AL{
-
     public static boolean check(ArrayList<Integer> list,int num){
         for(int i=0;i<list.size();i++){
             if(num==list.get(i)){
