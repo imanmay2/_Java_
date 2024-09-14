@@ -10,25 +10,30 @@ public class linked_list{
 
     public static Node head;
     public static Node tail;
+    public static int size;
 
-    public static void addFirst(int data){
+    public static void addFirst(int data){      
         Node newNode=new Node(data);
         if(head==null){
             head=tail=newNode;
+            size++;
             return;
         }
         newNode.next=head;
         head=newNode;
+        size++;
     }
 
     public static void addLast(int data){
         Node newNode=new Node(data);
         if(head==null){
             head=tail=newNode;
+            size++;
             return;
         }
         tail.next=newNode;
         tail=newNode;
+        size++;
     }
 
     public static boolean isEmpty(){
@@ -49,7 +54,7 @@ public class linked_list{
 
     public static void add_middle(int idx,int data){
         Node newNode=new Node(data);
-        if(isEmpty()){
+        if(head==null){
             head=tail=newNode;
             return;
         }
@@ -64,21 +69,23 @@ public class linked_list{
         }
         newNode.next=temp.next;
         temp.next=newNode;
+        size++;
     }
     public static void Remove_First(){
-        if(head==null){
+        if(size==0){
             System.out.println("LinkedList is Empty.");
             return;
         }
-        head=head.next;
-    }
-
-    public static void Remove_Last(){
-        if(head==null){
-            System.out.println("Linked List is Empty.");
+        else if(size==1){
+            head=tail=null;
+            size--;
             return;
         }
+        head=head.next;
+        size--;
     }
+
+    
     public static void main(String args[]){
         linked_list ll=new linked_list();
         ll.addFirst(1);
