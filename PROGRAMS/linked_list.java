@@ -170,7 +170,7 @@ public class linked_list{
         ll.addLast(4);
         ll.addLast(5);
         ll.print_LL();
-        ll.check_Pallindrome();
+        System.out.println(ll.check_Pallindrome());
         System.out.println();
         System.out.println();
         System.out.println("The length of the linked list is : "+ll.size);
