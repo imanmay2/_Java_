@@ -52,6 +52,7 @@ public class linked_list{
         System.out.print("Null");
     }
 
+
     public static void add_middle(int idx,int data){
         Node newNode=new Node(data);
         if(head==null){
@@ -71,6 +72,8 @@ public class linked_list{
         temp.next=newNode;
         size++;
     }
+
+
     public static void Remove_First(){
         if(size==0){
             System.out.println("LinkedList is Empty.");
@@ -84,15 +87,92 @@ public class linked_list{
         head=head.next;
         size--;
     }
+    public static void Reverse_LL(){
+        Node next;
+        Node prev=null;
+        Node curr=tail=head;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    }
+
+    
+
+
+    public static void Remove_Nth_Node_from_end(int ele_){
+        if(ele_>size){
+            System.out.println("Sorry, Index out of Bound!!!");
+            return;
+        }
+        int idx=size-ele_;
+        int i=0;
+        Node temp=head;
+        while(i<idx-1){
+            i++;
+            temp=temp.next;
+        }
+
+        temp.next=temp.next.next;
+        size--;
+    }
+
+    public static  Node find_midNode(){
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null || fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
+
+    public static boolean check_Pallindrome(){
+        if(head==null || head.next==null){
+            return true;
+        }
+        Node midNode=find_midNode();
+
+        //Reverse the 2nd half of the LinkedList.
+        Node prev=null;
+        Node curr=midNode;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        Node right=prev;
+        Node left=head;
+
+
+        //checking the 1st and 2nd half.
+        while(right!=null){
+            if(left.data!=right.data){
+                return false;
+            }
+            left=left.next;
+            right=right.next;
+        }
+        return true;
+    }
 
     
     public static void main(String args[]){
         linked_list ll=new linked_list();
-        ll.addFirst(1);
-        ll.addFirst(2);
+        ll.addLast(1);
+        ll.addLast(2);
         ll.addLast(3);
         ll.addLast(4);
-        ll.add_middle(2,0);
+        ll.addLast(5);
         ll.print_LL();
+        ll.check_Pallindrome();
+        System.out.println();
+        System.out.println();
+        System.out.println("The length of the linked list is : "+ll.size);
     }
 }
