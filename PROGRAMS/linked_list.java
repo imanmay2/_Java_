@@ -11,7 +11,6 @@ public class linked_list{
     public static Node head;
     public static Node tail;
     public static int size;
-
     public static void addFirst(int data){      
         Node newNode=new Node(data);
         if(head==null){
@@ -123,7 +122,7 @@ public class linked_list{
     public static  Node find_midNode(){
         Node slow=head;
         Node fast=head;
-        while(fast!=null || fast.next!=null){
+        while(fast!=null && fast.next!=null){
             slow=slow.next;
             fast=fast.next.next;
         }
@@ -167,8 +166,8 @@ public class linked_list{
         ll.addLast(1);
         ll.addLast(2);
         ll.addLast(3);
-        ll.addLast(4);
-        ll.addLast(5);
+        ll.addLast(2);
+        ll.addLast(1);
         ll.print_LL();
         System.out.println(ll.check_Pallindrome());
         System.out.println();
