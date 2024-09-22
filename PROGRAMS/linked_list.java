@@ -159,20 +159,60 @@ public class linked_list{
         }
         return true;
     }
+    public static  boolean detect_cycle(){
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void remove_Cycle(){
+        boolean f=false;
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                f=true;
+                break;
+            }
+        }
+        if(f==true){
+            Node prev=null;
+            slow=head;
+            while(fast!=slow){
+                prev=fast;
+                slow=slow.next;
+                fast=fast.next;
+            }
+            prev.next=null;
+            System.out.println("Removed the cycle in the linkedlist.");
+        }
+        else{
+            System.out.println("LinkedList is not in cycle.");
+        }
+    }
     
 
     
     public static void main(String args[]){
-        linked_list ll=new linked_list();
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(3);
-        ll.addLast(2);
-        ll.addLast(1);
-        ll.print_LL();
-        System.out.println(ll.check_Pallindrome());
-        System.out.println();
-        System.out.println();
-        System.out.println("The length of the linked list is : "+ll.size);
+        head=new Node(1);
+        head.next=new Node(2);
+        head.next.next=new Node(3);
+        head.next.next.next=head.next;
+
+        // ll.print_LL();
+        // System.out.println(ll.check_Pallindrome());
+        // System.out.println();
+        // System.out.println();
+        // System.out.println("The length of the linked list is : "+ll.size);
+        remove_Cycle();
     }
 }
