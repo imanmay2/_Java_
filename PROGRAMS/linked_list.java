@@ -199,20 +199,54 @@ public class linked_list{
             System.out.println("LinkedList is not in cycle.");
         }
     }
+
+
+    public static void zig_zag(){
+        Node midNode=find_midNode();
+
+
+        //reversing the 2nd half linkedlist.
+        Node prev=null;
+        Node curr=midNode;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        Node LH=head;
+        Node RH=prev;
+        Node nextL,nextR;
+        while(LH!=null && RH!=null){
+            nextL=LH.next;
+            nextR=RH.next;
+            RH.next=nextL;
+            RH=nextR;
+            LH=nextL;
+        }
+    }
     
 
     
     public static void main(String args[]){
-        head=new Node(1);
-        head.next=new Node(2);
-        head.next.next=new Node(3);
-        head.next.next.next=head.next;
+        // head=new Node(1);
+        // head.next=new Node(2);
+        // head.next.next=new Node(3);
+        // head.next.next.next=head.next;
 
+
+        linked_list ll=new linked_list();
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.addLast(4);
         // ll.print_LL();
         // System.out.println(ll.check_Pallindrome());
         // System.out.println();
         // System.out.println();
         // System.out.println("The length of the linked list is : "+ll.size);
-        remove_Cycle();
+        ll.zig_zag();
+        ll.print_LL();
     }
 }
