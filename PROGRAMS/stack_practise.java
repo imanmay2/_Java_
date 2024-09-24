@@ -20,6 +20,5 @@ public class stack_practise{
             System.out.println(s.peek());
             s.pop();
         }
-
     }
 }
