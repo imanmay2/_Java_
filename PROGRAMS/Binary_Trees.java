@@ -24,13 +24,37 @@ public class Binary_Trees {
             return newNode;
         }
 
+
+
         public static void pre_order_Traversal(Node root){
             if(root==null){
-                System.out.println("-1 ");
+                return;
             }
-            System.out.println(root.data+" ");
+            System.out.print(root.data+" ");
             pre_order_Traversal(root.left);
             pre_order_Traversal(root.right);
+        }
+
+
+
+        public static void in_order_traversal(Node root){
+            if(root==null){
+                return;
+            }
+            in_order_traversal(root.left);
+            System.out.print(root.data+" ");
+            in_order_traversal(root.right);
+        }
+
+
+
+        public static void post_order_traversal(Node root){
+            if(root==null){
+                return;
+            }
+            post_order_traversal(root.left);
+            post_order_traversal(root.right);
+            System.out.print(root.data+" ");
         }
     }
 
@@ -42,5 +66,12 @@ public class Binary_Trees {
         int[] arr={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         Node root=binaryTree.buildTree(arr);
         System.out.println(root.data);
+        System.out.println();
+        binaryTree.pre_order_Traversal(root);
+        System.out.println();
+        binaryTree.in_order_traversal(root);
+        System.out.println();
+        binaryTree.post_order_traversal(root);
+
     }
 }
