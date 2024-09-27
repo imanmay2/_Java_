@@ -1,3 +1,5 @@
+import java.util.*;
+import java.util.LinkedList;
 public class Binary_Trees {
 
     static class Node{
@@ -56,6 +58,39 @@ public class Binary_Trees {
             post_order_traversal(root.right);
             System.out.print(root.data+" ");
         }
+
+
+        public static void level_order_traversal(Node root){
+            if(root==null){
+                return;
+            }
+            Queue<Node> q1=new LinkedList<>();
+            q1.add(root);
+            q1.add(null);
+            while(!q1.isEmpty()){
+                Node curr=q1.remove();
+                if(curr!=null){
+                    System.out.print(curr.data+" ");
+                    if(curr.left!=null){
+                        q1.add(curr.left);
+                    }
+                    if(curr.right!=null){
+                        q1.add(curr.right);
+                    }
+                }
+                else{
+                    System.out.println("");
+                    if(q1.isEmpty()){
+                        break;
+                    }
+                    else{
+                        q1.add(null);
+                    }
+                }
+            }
+
+            
+        }
     }
 
     
@@ -65,13 +100,15 @@ public class Binary_Trees {
     public static void main(String args[]){
         int[] arr={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         Node root=binaryTree.buildTree(arr);
-        System.out.println(root.data);
-        System.out.println();
-        binaryTree.pre_order_Traversal(root);
-        System.out.println();
-        binaryTree.in_order_traversal(root);
-        System.out.println();
-        binaryTree.post_order_traversal(root);
+        // System.out.println(root.data);
+        // System.out.println();
+        // binaryTree.pre_order_Traversal(root);
+        // System.out.println();
+        // binaryTree.in_order_traversal(root);
+        // System.out.println();
+        // binaryTree.post_order_traversal(root);
+
+        binaryTree.level_order_traversal(root);
 
     }
 }
