@@ -91,6 +91,16 @@ public class Binary_Trees {
 
             
         }
+
+        public static void count_Nodes(Node root){
+            if(root==null){
+                return;
+            }
+            int left_subtree=count_Node(root.left);
+            int right_subtree=count_Node(root.right);
+            int count=left_subtree+right_subtree+1;
+            System.out.println(count);
+        }
     }
 
     
@@ -107,8 +117,7 @@ public class Binary_Trees {
         // binaryTree.in_order_traversal(root);
         // System.out.println();
         // binaryTree.post_order_traversal(root);
-
-        binaryTree.level_order_traversal(root);
-
+        // binaryTree.level_order_traversal(root);
+        count_Nodes(root);
     }
 }
