@@ -132,7 +132,7 @@ public class Binary_Trees {
 
     public static void main(String args[]){
         int[] arr={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
-        Node root=binaryTree.buildTree(arr); //Where is the object created ???? First
+        Node root=binaryTree.buildTree(arr); 
         // System.out.println(root.data);
         // System.out.println();
         // binaryTree.pre_order_Traversal(root);
