@@ -27,11 +27,51 @@ public class BinaryTrees{
             newNode.right=buildTree(nodes);
             return newNode;
         }
+
+
+        public static void pre_order_Traversal(Node root){
+            //Printing the Binary Tree in the pre-order traversal format--- Root --> Left -->Right.
+            if(root==null){
+                return;
+            }
+            System.out.print(root.data+" ");
+            pre_order_Traversal(root.left);
+            pre_order_Traversal(root.right);
+        }
+
+
+        public static void in_Order_Traversal(Node root){
+            // Printing the Binary Tree in the in-order traversal format--- Left -->Root -->Right.
+            if(root==null){
+                return;
+            }
+            in_Order_Traversal(root.left);
+            System.out.print(root.data+" ");
+            in_Order_Traversal(root.right);
+        }
+
+
+        public static void post_Order_Traversal(Node root){
+            //Printing the Binary Tree in the pre-order traversal format--- Left -->Right--->Root.
+            if(root==null){
+                return;
+            }
+            post_Order_Traversal(root.left);
+            post_Order_Traversal(root.right);
+            System.out.print(root.data+" ");
+        }
     }
+
     public static void main(String args[]){
-        int nodes[]={10,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         Binary_Tree tree=new Binary_Tree();
         Node root=tree.buildTree(nodes);
         System.out.println("The root is : "+ root.data);
+        System.out.println();
+        tree.pre_order_Traversal(root);
+        System.out.println();
+        tree.in_Order_Traversal(root);
+        System.out.println();
+        tree.post_Order_Traversal(root);
     }
 }
