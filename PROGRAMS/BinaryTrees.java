@@ -1,5 +1,7 @@
                                                  // Practising Binary Trees, basics///
 
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinaryTrees{
     static class Node{
@@ -60,6 +62,39 @@ public class BinaryTrees{
             post_Order_Traversal(root.right);
             System.out.print(root.data+" ");
         }
+        
+
+        public static void level_Order_Traversal(Node root){
+            if(root==null){
+                return;
+            }
+            Queue<Node> q=new LinkedList<>();
+            q.add(root);
+            q.add(null);
+            while(!q.isEmpty()){
+                Node currNode=q.remove();
+                if(currNode!=null){
+                    System.out.print(currNode.data);
+                    if(currNode.left!=null){
+                        q.add(currNode.left);
+                    }
+                    if(currNode.right!=null){
+                        q.add(currNode.right);
+                    }
+                }
+                else{
+                    System.out.println();
+                    if(q.isEmpty()){
+                        break;
+                    }
+                    else{
+                        q.add(null);
+                    }
+                }
+            }
+        }
+
+        }
     }
 
     public static void main(String args[]){
@@ -73,5 +108,8 @@ public class BinaryTrees{
         tree.in_Order_Traversal(root);
         System.out.println();
         tree.post_Order_Traversal(root);
+        System.out.println();
+        System.out.println("Level order Traversal : ");
+        tree.level_Order_Traversal(root);
     }
 }
