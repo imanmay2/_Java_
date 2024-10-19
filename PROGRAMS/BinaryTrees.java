@@ -92,6 +92,7 @@ public class BinaryTrees {
             }
         }
 
+
         public static int sumNode(Node root){
             if(root==null){
                 return 0;
@@ -108,6 +109,15 @@ public class BinaryTrees {
             int left_count = countNode(root.left);
             int right_count = countNode(root.right);
             return left_count + right_count + 1;
+        }
+
+        public static int heightTree(Node root){
+            if(root==null){
+                return 0;
+            }
+            int left_height=heightTree(root.left);
+            int right_height=heightTree(root.right);
+            return Math.max(left_height, right_height)+1;
         }
     }
 
@@ -128,5 +138,7 @@ public class BinaryTrees {
         tree.level_Order_Traversal(root);
         System.out.println("Sum of the Nodes is : "+tree.sumNode(root));
         System.out.println("Count of the Nodes is : "+tree.countNode(root));
+        System.out.println();
+        System.out.println("Height of the Tree is : "+tree.heightTree(root));
     }
 }
