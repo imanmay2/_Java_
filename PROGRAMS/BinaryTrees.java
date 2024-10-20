@@ -122,6 +122,10 @@ public class BinaryTrees {
             int right_height=heightTree(root.right);
             return Math.max(left_height, right_height)+1;
         }
+
+        public static int diameterTree(Node root){
+
+        }
     }
 
 
