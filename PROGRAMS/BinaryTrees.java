@@ -155,8 +155,36 @@ public class BinaryTrees {
             Info rightInfo=diameterTreeInfo(root.right);
             int height=Math.max(leftInfo.height,rightInfo.height)+1;
             int diam=Math.max(Math.max(leftInfo.diam,rightInfo.diam),leftInfo.height+rightInfo.height+1);
-
             return new Info(diam,height);
+        }
+
+
+        public static boolean isIdentical(Node root,Node subRoot){
+            if(root==null && subRoot==null){
+                return true;
+            }else if(root!=null || subRoot!=null || subRoot.data!=root.data){
+                return false;
+            }
+
+            if(!isIdentical(root.left, subRoot.left)){
+                return false;
+            }
+            if(!isIdentical(root.right, subRoot.right)){
+                return false;
+            }
+            return true;
+        }
+
+        public static boolean isSubtree(Node root,Node subRoot){
+            if(root==null){
+                return false;
+            }
+            if(root.data==subRoot.data){
+                if(isIdentical(root,subRoot)){
+                    return true;
+                }
+            }
+            return isSubtree(root.left, subRoot)||isSubtree(root.right, subRoot);
         }
     }
 
