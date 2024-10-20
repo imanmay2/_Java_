@@ -5,7 +5,6 @@ public class AttendEase_Algo{
     public static HashMap<String,extract> getdateMap(Date date){
         HashMap<String,extract> dateMap = new HashMap<>();
         //Code as required
-
         // dateMap.put("Mon",new extract(date)); //Sat Oct 20......
         // System.out.println(dateMap); //{"Mon":Object<extract>}
         // extract val = dateMap.get("Mon");
@@ -13,10 +12,8 @@ public class AttendEase_Algo{
         // val.{} //Oct 20, 2024
         return dateMap;
     }
+    // Sun Oct 20 12:23:35 IST 2024.
 
-
-    // Sun Oct 20 12:23:35 IST 2024
-        
     public static class extract{
         private int extractDate;
         private String fetch_Date;
