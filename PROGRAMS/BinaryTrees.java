@@ -2,13 +2,11 @@
 
 import java.util.LinkedList;
 import java.util.Queue;
-
 public class BinaryTrees {
     static class Node {
         int data;
         Node left;
         Node right;
-
         Node(int data) {
             this.data = data;
             this.left = null;
@@ -16,10 +14,10 @@ public class BinaryTrees {
         }
     }
 
+
     static class Binary_Tree {
         static int idx = -1;
-
-        public static Node buildTree(int nodes[]) {
+        public static Node buildTree(int nodes[]){
             // Building up the Binary Tree.
             idx++;
             if (nodes[idx] == -1) {
@@ -30,6 +28,7 @@ public class BinaryTrees {
             newNode.right = buildTree(nodes);
             return newNode;
         }
+
 
         public static void pre_order_Traversal(Node root) {
             // Printing the Binary Tree in the pre-order traversal format--- Root --> Left
@@ -42,6 +41,7 @@ public class BinaryTrees {
             pre_order_Traversal(root.right);
         }
 
+
         public static void in_Order_Traversal(Node root) {
             // Printing the Binary Tree in the in-order traversal format--- Left -->Root
             // -->Right.
@@ -53,6 +53,7 @@ public class BinaryTrees {
             in_Order_Traversal(root.right);
         }
 
+
         public static void post_Order_Traversal(Node root) {
             // Printing the Binary Tree in the pre-order traversal format--- Left
             // -->Right--->Root.
@@ -63,6 +64,7 @@ public class BinaryTrees {
             post_Order_Traversal(root.right);
             System.out.print(root.data + " ");
         }
+
 
         public static void level_Order_Traversal(Node root) {
             if (root == null) {
@@ -91,6 +93,7 @@ public class BinaryTrees {
                 }
             }
         }
+        
 
 
         public static int sumNode(Node root){
