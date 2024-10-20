@@ -143,7 +143,7 @@ public class BinaryTrees {
             int leftHeight=heightTree(root.left);
             int rightHeight=heightTree(root.right);
             int diameter=leftHeight+rightHeight+1;
-            return Math.max(leftDiameter,Math.max(rightDiameter,diameter));
+            return Math.max(Math.max(leftDiameter,rightDiameter),diameter);
         }
 
 
