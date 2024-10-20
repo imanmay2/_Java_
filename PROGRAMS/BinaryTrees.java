@@ -123,8 +123,17 @@ public class BinaryTrees {
             return Math.max(left_height, right_height)+1;
         }
 
-        public static int diameterTree(Node root){
 
+        public static int diameterTree(Node root){
+            if(root==null){
+                return 0;
+            }
+            leftDiameter=diameterTree(root.left);
+            rightDiameter=diameterTree(root.right);
+            leftHeight=heightTree(root.left);
+            rightHeight=heightTree(root.right);
+            diameter=leftHeight+rightHeight+1;
+            return Math.max(leftDiameter,rightDiameter,diameter);
         }
     }
 
