@@ -128,12 +128,12 @@ public class BinaryTrees {
             if(root==null){
                 return 0;
             }
-            leftDiameter=diameterTree(root.left);
-            rightDiameter=diameterTree(root.right);
-            leftHeight=heightTree(root.left);
-            rightHeight=heightTree(root.right);
-            diameter=leftHeight+rightHeight+1;
-            return Math.max(leftDiameter,rightDiameter,diameter);
+            int leftDiameter=diameterTree(root.left);
+            int rightDiameter=diameterTree(root.right);
+            int leftHeight=heightTree(root.left);
+            int rightHeight=heightTree(root.right);
+            int diameter=leftHeight+rightHeight+1;
+            return Math.max(leftDiameter,Math.max(rightDiameter,diameter));
         }
     }
 
@@ -142,19 +142,20 @@ public class BinaryTrees {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
         Binary_Tree tree = new Binary_Tree();
         Node root = tree.buildTree(nodes);
-        System.out.println("The root is : " + root.data);
-        System.out.println();
-        tree.pre_order_Traversal(root);
-        System.out.println();
-        tree.in_Order_Traversal(root);
-        System.out.println();
-        tree.post_Order_Traversal(root);
-        System.out.println();
-        System.out.println("Level order Traversal : ");
-        tree.level_Order_Traversal(root);
-        System.out.println("Sum of the Nodes is : "+tree.sumNode(root));
-        System.out.println("Count of the Nodes is : "+tree.countNode(root));
-        System.out.println();
-        System.out.println("Height of the Tree is : "+tree.heightTree(root));
+        // System.out.println("The root is : " + root.data);
+        // System.out.println();
+        // tree.pre_order_Traversal(root);
+        // System.out.println();
+        // tree.in_Order_Traversal(root);
+        // System.out.println();
+        // tree.post_Order_Traversal(root);
+        // System.out.println();
+        // System.out.println("Level order Traversal : ");
+        // tree.level_Order_Traversal(root);
+        // System.out.println("Sum of the Nodes is : "+tree.sumNode(root));
+        // System.out.println("Count of the Nodes is : "+tree.countNode(root));
+        // System.out.println();
+        // System.out.println("Height of the Tree is : "+tree.heightTree(root));
+        System.out.println(tree.diameterTree(root));
     }
 }
