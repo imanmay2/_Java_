@@ -1,5 +1,6 @@
 // Practising Binary Trees, basics///
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 public class BinaryTrees {
@@ -28,7 +29,7 @@ public class BinaryTrees {
     static class Info{
         Node node;
         int hd;
-        public Info(Node node,int hd){
+        public Info(int hd,Node node){
             this.node=node;
             this.hd=hd;
         }
@@ -198,6 +199,43 @@ public class BinaryTrees {
         }
 
 
+        public static void topView(Node root){
+            HashMap<Integer,Info> map=new HashMap<>();
+            Queue<Info> q1=new LinkedList<>();
+            int max=0,min=0;
+            q1.add(new Info(0,root));
+            q1.add(null);
+            while(!q1.isEmpty()){
+                Info curr=q1.remove();
+                if(curr==null){
+                    if(q1.isEmpty()){
+                        break;
+                    }
+                    else{
+                        q1.add(null);
+                    }
+                }
+                else{
+                    if(!map.containsKey(curr.hd)){
+                        map.put(curr.hd,curr.node);
+                    }
+                    if(curr.node.left!=null){
+                        q1.add(new Info(curr.hd-1,curr.node.left));
+                        min=Math.min(min,curr.hd-1);
+                    }
+                    if(curr.node.right!=null){
+                        q1.add(new Info(curr.hd+1,curr.node.right));
+                        max=Math.max(curr.hd+1,max);
+                    }
+                }
+            }
+            //printing the topView of the code.
+            for(int i=min;i<=max;i++){
+                System.out.println(map.get(i).data);
+            }
+        }
+
+
         
     }
 
@@ -220,6 +258,7 @@ public class BinaryTrees {
         // System.out.println("Count of the Nodes is : "+tree.countNode(root));
         // System.out.println();
         // System.out.println("Height of the Tree is : "+tree.heightTree(root));
-        System.out.println(tree.diameterTreeInfo(root).diam);
+        // System.out.println(tree.diameterTreeInfo(root).diam);
+        tree.topView(root);
     }
 }
