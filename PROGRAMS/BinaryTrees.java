@@ -15,12 +15,22 @@ public class BinaryTrees {
     }
 
 
+    // static class Info{
+    //     int diam;
+    //     int height;
+    //     public Info(int diam,int height){
+    //         this.diam=diam;
+    //         this.height=height;
+    //     }
+    // }
+
+
     static class Info{
-        int diam;
-        int height;
-        public Info(int diam,int height){
-            this.diam=diam;
-            this.height=height;
+        Node node;
+        int hd;
+        public Info(Node node,int hd){
+            this.node=node;
+            this.hd=hd;
         }
     }
 
@@ -186,6 +196,9 @@ public class BinaryTrees {
             }
             return isSubtree(root.left,subRoot)||isSubtree(root.right, subRoot);
         }
+
+
+        
     }
 
 
