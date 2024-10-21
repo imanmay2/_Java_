@@ -162,29 +162,29 @@ public class BinaryTrees {
         public static boolean isIdentical(Node root,Node subRoot){
             if(root==null && subRoot==null){
                 return true;
-            }else if(root!=null || subRoot!=null || subRoot.data!=root.data){
+            }else if(root!=null || subRoot!=null || root.data!=subRoot.data){
                 return false;
             }
-
             if(!isIdentical(root.left, subRoot.left)){
                 return false;
             }
-            if(!isIdentical(root.right, subRoot.right)){
+            else if(!isIdentical(root.right, subRoot.right)){
                 return false;
             }
-            return true;
         }
+
 
         public static boolean isSubtree(Node root,Node subRoot){
             if(root==null){
                 return false;
             }
+
             if(root.data==subRoot.data){
                 if(isIdentical(root,subRoot)){
                     return true;
                 }
             }
-            return isSubtree(root.left, subRoot)||isSubtree(root.right, subRoot);
+            return isSubtree(root.left,subRoot)||isSubtree(root.right, subRoot);
         }
     }
 
