@@ -158,16 +158,16 @@ public class BinaryTrees {
         }
 
 
-        public static Info diameterTreeInfo(Node root){
-            if(root==null){
-                return new Info(0,0);
-            }
-            Info leftInfo=diameterTreeInfo(root.left);
-            Info rightInfo=diameterTreeInfo(root.right);
-            int height=Math.max(leftInfo.height,rightInfo.height)+1;
-            int diam=Math.max(Math.max(leftInfo.diam,rightInfo.diam),leftInfo.height+rightInfo.height+1);
-            return new Info(diam,height);
-        }
+        // public static Info diameterTreeInfo(Node root){
+        //     if(root==null){
+        //         return new Info(0,0);
+        //     }
+        //     Info leftInfo=diameterTreeInfo(root.left);
+        //     Info rightInfo=diameterTreeInfo(root.right);
+        //     int height=Math.max(leftInfo.height,rightInfo.height)+1;
+        //     int diam=Math.max(Math.max(leftInfo.diam,rightInfo.diam),leftInfo.height+rightInfo.height+1);
+        //     return new Info(diam,height);
+        // }
 
 
         public static boolean isIdentical(Node root,Node subRoot){
@@ -182,6 +182,7 @@ public class BinaryTrees {
             else if(!isIdentical(root.right, subRoot.right)){
                 return false;
             }
+            return true;
         }
 
 
@@ -217,7 +218,7 @@ public class BinaryTrees {
                 }
                 else{
                     if(!map.containsKey(curr.hd)){
-                        map.put(curr.hd,curr.node);
+                        map.put(curr.hd,curr);
                     }
                     if(curr.node.left!=null){
                         q1.add(new Info(curr.hd-1,curr.node.left));
@@ -231,15 +232,12 @@ public class BinaryTrees {
             }
             //printing the topView of the code.
             for(int i=min;i<=max;i++){
-                System.out.println(map.get(i).data);
+                System.out.println(map.get(i).node.data);
             }
-        }
-
-
-        
+        }  
     }
 
-
+    
     public static void main(String args[]) {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
         Binary_Tree tree = new Binary_Tree();
