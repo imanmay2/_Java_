@@ -1,5 +1,7 @@
 // Practising Binary Trees, basics///
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -249,6 +251,42 @@ public class BinaryTrees {
             kth_level(root.left, k, level+1);
             kth_level(root.right, k, level+1);
         }
+
+
+        //Get Path for the lowest common ancestor.
+        public static boolean getPath(Node root,int n,ArrayList<Node> path){
+            if(root==null){
+                //basecase.
+                return false;
+            }
+            path.add(root);
+            if(root.data==n){
+                return true;
+            }
+
+            boolean foundLeft=getPath(root.left, n, path);
+            boolean foundRight=getPath(root.right, n, path);
+            if(foundLeft||foundRight){
+                return true;
+            }
+            path.remove(path.size()-1);
+            return false;
+        }
+
+        //Lowest Common Ancestor.
+        public static Node lowestCommonAncestor(Node root,int n1,int n2){
+            ArrayList<Node> path1=new ArrayList<>();
+            ArrayList<Node> path2=new ArrayList<>();
+            getPath(root, n1, path1);
+            getPath(root, n2, path2);
+            int i=0;
+            for(i=0;i<path1.size() && i<path2.size();i++){
+                if(path1.get(i)!=path2.get(i)){
+                    break;
+                }
+            }
+            System.out.println(path1.get(i-1));
+        }
     }
 
     
@@ -272,6 +310,7 @@ public class BinaryTrees {
         // System.out.println("Height of the Tree is : "+tree.heightTree(root));
         // System.out.println(tree.diameterTreeInfo(root).diam);
         // tree.topView(root);
-        tree.kth_level(root, 3, 1);
+        // tree.kth_level(root, 3, 1);
+        tree.level_Order_Traversal(root,4,5);
     }
 }
