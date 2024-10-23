@@ -234,7 +234,21 @@ public class BinaryTrees {
             for(int i=min;i<=max;i++){
                 System.out.println(map.get(i).node.data);
             }
-        }  
+        }
+        
+        
+        // Kth level of the Tree.
+        public static void kth_level(Node root,int k,int level){
+            if(root==null){
+                return;
+            }
+            if(level==k){
+                System.out.println(root.data+" ");
+                return;
+            }
+            kth_level(root.left, k, level+1);
+            kth_level(root.right, k, level+1);
+        }
     }
 
     
@@ -257,6 +271,7 @@ public class BinaryTrees {
         // System.out.println();
         // System.out.println("Height of the Tree is : "+tree.heightTree(root));
         // System.out.println(tree.diameterTreeInfo(root).diam);
-        tree.topView(root);
+        // tree.topView(root);
+        tree.kth_level(root, 3, 1);
     }
 }
