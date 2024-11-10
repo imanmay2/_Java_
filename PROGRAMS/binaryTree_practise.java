@@ -53,26 +53,6 @@ public class binaryTree_practise{
             postOrderTraversal(root.right);
             System.out.print(root.data+" ");
         }
-
-
-        public static void levelOrderTraversal(Node root){
-            if(root==null){
-                return;
-            }
-            Queue<Node> q=new LinkedList<>();
-            q.add(root);
-            q.add(null);
-
-            while(!q.isEmpty()){
-                Node currNode=q.remove();   //Deletes the node.
-                if(currNode.left!=null){
-                    q.add(currNode.left);
-                }
-                if(currNode.right!=null){
-                    q.add(currNode.right);
-                }
-            }
-        }
     }
 
     public static void main(String args[]){

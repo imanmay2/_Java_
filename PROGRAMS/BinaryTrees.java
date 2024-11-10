@@ -85,7 +85,7 @@ public class BinaryTrees {
             }
             post_Order_Traversal(root.left);
             post_Order_Traversal(root.right);
-            System.out.print(root.data + " ");
+            System.out.print(root.data +" ");
         }
 
 
