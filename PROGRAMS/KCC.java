@@ -1,45 +1,48 @@
 import java.util.Collections;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class KCC {
 
     public static ArrayList<Integer> getList(int num){
-        String str_=String(num);
+        String str_=Integer.toString(num);
         ArrayList<Integer> list=new ArrayList<>();
-        for(int i=0;i<str_.length;i++){
-            list.add(int(str_[i]));
+        for(int i=0;i<str_.length();i++){
+            list.add(Integer.parseInt(str_.charAt(i)+""));
         }
         return list;
     }
 
 
-    public static int getNum(ArrayList<Integer> list){
-        String s_="";
+    public static int getNum(ArrayList list){
+        String s="";
         for(int i=0;i<list.size();i++){
             s=s+list.get(i);
         }
-        return int(s);
+        return Integer.parseInt(s);
     }
+
 
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the number : ");
         int n=sc.nextInt();
-        boolean f=false;
         int ct=0;
-        while(f==false){
-            ArrayList<Integer> list_asc=Collections.sort(getList(n));
-            ArrayList<Integer> list_desc=Collections.sort(getList(n),Collections.reverseOrder());
+        while(true){
+            ArrayList<Integer> list_asc=getList(n);
+            Collections.sort(list_asc);
+            ArrayList<Integer> list_desc=getList(n);
+            Collections.sort(list_desc,Collections.reverseOrder());
             int num1=getNum(list_desc);
             int num2=getNum(list_asc);
             if(num1-num2==6174){
                 System.out.println("Match Found ! ");
                 System.out.println("Count of KCC finding pairs is :"+ct);
-                f=true;
                 break;
             }
             else{
-                num=num1-num2;
+                n=num1-num2;
+                ct++;
             }
         }
     }
