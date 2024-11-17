@@ -2,14 +2,13 @@ public class removeDuplicate {
     public static boolean check(String s,String str){
         for(int i=0;i<str.length();i++){
             if(s.equals(str.charAt(i)+"")){
-                System.out.println("enter");
                 return true;
             }
         }
         return false;
     }
 
-    
+
     public static int removeDuplicates(int[] nums) {
         String str=",";
         for(int i=0;i<nums.length;i++){
@@ -22,6 +21,8 @@ public class removeDuplicate {
         return str.length()-1;
     }
     public static void main(String args[]){
-        System.out.println(removeDuplicates(new int[]{1,1,1,2}));
+        int[] arr_={1,1,1,2};
+        // System.out.println(removeDuplicates(new int[]{1,1,1,2}));
+        System.out.println(removeDuplicates(arr_));
     }
 }
