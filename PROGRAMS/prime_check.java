@@ -3,11 +3,11 @@ public class prime_check{
 
     public static boolean checkPrime(int n){
         int ct=0;
-        for(int i=1;i<=n;i++){
+        for(int i=2;i<=n/2;i++){
             if(n%i==0){
                 ct++;
             }
-        } if(ct==2){
+        } if(ct==0){
             return true;
         } else {
             return false;

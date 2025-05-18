@@ -68,15 +68,12 @@ public class Allpattern2 {
             for(int j=1;j<=i;j++){
                 System.out.print("*");
             }
-
             for(int k=1;k<=2*(n-i);k++){
                 System.out.print(" ");
             }
-
             for(int m=1;m<=i;m++){
                 System.out.print("*");
             }
-
             System.out.println();
         }
 
@@ -99,7 +96,62 @@ public class Allpattern2 {
         }
     }
 
+    public static void rhombusPattern(int n){
+        for(int i=1;i<=5;i++){
+
+            //for spaces.
+            for(int j=(n-i);j>=0;j--){
+                System.out.print(" ");
+            }
+
+            for(int k=1;k<=n;k++){
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+    }
+
+
+    public static void hollowRhombus(int n){
+
+        for(int i=1;i<=n;i++){
+            
+            //for leading spaces
+            for(int j=1;j<=n-i;j++){
+                System.out.print(" ");
+            }
+
+            //for stars.
+
+            for(int k=1;k<=n;k++){
+                if(k==1 || k==n || i==1 || i==n){
+                    System.out.print("*");
+                }else{
+                    System.out.print(" ");
+                }
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void diamondPattern(int n){
+        for(int i=1;i<=n;i++){
+            for(int k=1;k<=(n-i);k++){
+                System.out.print(" ");
+            }
+
+
+            for(int j=1;j<=(2*i)-1;j++){
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+    }
+
     public static void main(String args[]){
-        butterflyPattern(4);
+        diamondPattern(4);
     }
 }
