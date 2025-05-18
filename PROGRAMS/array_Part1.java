@@ -37,6 +37,10 @@ public class array_Part1{
         }
         System.out.println();
     }
+
+    public static void binarySearch(int n,int[] arr){
+        
+    }
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
 
@@ -49,7 +53,5 @@ public class array_Part1{
 
         linearSearch(n, arr);
         printArr(n, arr);
-
-        
     }
 }
