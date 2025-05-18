@@ -2,6 +2,19 @@ import java.util.Scanner;
 
 public class array_Part1{
 
+    public static void BubbleSort(int n,int[] arr){
+        for(int i=0;i<n-1;i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[i]>arr[j]){
+                    int temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+    }
+
+
     public static void inputArr(int n,int[] arr){
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<n;i++){
@@ -16,7 +29,6 @@ public class array_Part1{
         for(int i=0;i<n;i++){
             System.out.print(arr[i]+" ");
         }
-
         System.out.println();
     }
 
@@ -39,7 +51,29 @@ public class array_Part1{
     }
 
     public static void binarySearch(int n,int[] arr){
+        Scanner sc=new Scanner(System.in);
+        int key=sc.nextInt();
+        BubbleSort(n, arr);
+        int start=0;
+        int end=n-1;
         
+        boolean f=false;
+        while(start<=end){
+            int mid=(start+end)/2;
+            if(arr[mid]==key){
+                System.out.println("Key found at index : "+mid);
+                f=true;
+                break;
+            } else if(key>arr[mid]){
+                start=mid;
+            } else{
+                end=mid;
+            }
+        }
+
+        if(f==false){
+            System.out.println("Key not found in the array.");
+        }
     }
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
@@ -51,7 +85,7 @@ public class array_Part1{
 
         inputArr(n, arr);
 
-        linearSearch(n, arr);
+        binarySearch(n, arr);
         printArr(n, arr);
     }
 }
