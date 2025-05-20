@@ -1,3 +1,4 @@
+package Practise;
 import java.util.Scanner;
 
 public class array_Part1{
@@ -50,31 +51,6 @@ public class array_Part1{
         System.out.println();
     }
 
-    public static void binarySearch(int n,int[] arr){
-        Scanner sc=new Scanner(System.in);
-        int key=sc.nextInt();
-        BubbleSort(n, arr);
-        int start=0;
-        int end=n-1;
-        
-        boolean f=false;
-        while(start<=end){
-            int mid=(start+end)/2;
-            if(arr[mid]==key){
-                System.out.println("Key found at index : "+mid);
-                f=true;
-                break;
-            } else if(key>arr[mid]){
-                start=mid;
-            } else{
-                end=mid;
-            }
-        }
-
-        if(f==false){
-            System.out.println("Key not found in the array.");
-        }
-    }
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
 
