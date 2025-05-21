@@ -1,13 +1,9 @@
 public class max_Sum_SubArray{
     public static void main(String args[]){
         int[] arr={-2,-3,4,-1,-2,1,5,-3};
-
         int[] currSum=new int[arr.length];
-
         int sum=0;
         int max=0;
-
-
         sum=sum+arr[0];
         if(sum<0){
             currSum[0]=0;
@@ -28,8 +24,6 @@ public class max_Sum_SubArray{
                 }
             }
         }
-
-
         System.out.println("Maximum Subarray sum is: "+max);
     }
 }
