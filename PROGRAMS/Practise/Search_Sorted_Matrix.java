@@ -1,5 +1,4 @@
 public class Search_Sorted_Matrix {
-
     public static void Search_Sorted_Matrix(int arr[][],int key){
         int row=0;
         int col=arr[0].length-1;
@@ -15,7 +14,6 @@ public class Search_Sorted_Matrix {
                 break;
             }
         }
-
         if(f==false){
             System.out.println("So sorry,Element not found in the matrix.");
         }
