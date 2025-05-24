@@ -1,7 +1,7 @@
 public class classes_objects {
     public static void main(String args[]){
         Greet g1=new Greet();
-        Greet.setName("Anwesha");
+        g1.setName("Anwesha");
         System.out.print("Name you have entered is "+g1.getName());
     }
 }
