@@ -9,7 +9,6 @@ public class charArrString {
                 maxPosition=i;
             }
         }
-
         System.out.println("Largest String in the Sentence is: "+arr[maxPosition]);
         }
 }
