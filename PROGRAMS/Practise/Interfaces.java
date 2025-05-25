@@ -21,6 +21,11 @@ public class Interfaces {
         Duck d1=new Duck();
         d1.fly();
         d1.swim();
+
+
+        Bird b1=new Bird();
+        b1.fly();
+        b1.swim();
     }
 }
 
@@ -43,3 +48,12 @@ class Duck{
     }
 }
 
+class Bird{
+    void fly(){
+        System.out.println("Birds are flying.");
+    }
+
+    void swim(){
+        System.out.println("Birds can't swim.");
+    }
+}
