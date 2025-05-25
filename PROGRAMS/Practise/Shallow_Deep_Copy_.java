@@ -5,12 +5,7 @@ public class Shallow_Deep_Copy_ {
 
 
         Student s2=new Student(s1);
-        // System.out.println(s2.name);
-        // System.out.println(s2.roll);
-
-        // for(int i=0;i<3;i++){
-        //     System.out.print(s2.marks[i]+" ");
-        // }
+        
 
         s1.print(s2);
         s2.name="Anwesha Chakraborty";
