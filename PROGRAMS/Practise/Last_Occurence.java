@@ -7,7 +7,6 @@ public class Last_Occurence {
         if(key==arr[i]){
             idx=i;
         }
-
         return lastOccurence(arr, key, i+1, idx);
     }
     public static void main(String args[]){
