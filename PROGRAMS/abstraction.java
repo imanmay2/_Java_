@@ -29,3 +29,4 @@ class Chicken extends Animal{
         System.out.println("Chicken walks");
     }
 }
+
