@@ -18,7 +18,7 @@ public class mergeSort {
             k++;
         }
 
-
+        //for the remaining elements.
         while(i<=mid){
             temp[k]=arr[i];
             i++;
@@ -40,7 +40,6 @@ public class mergeSort {
     }
     public static void mergeSort_(int arr[],int si,int ei){
         if(si>=ei){
-
             //base case
             return;
         }
@@ -67,7 +66,7 @@ public class mergeSort {
 
 
     public  static void main(String args[]){
-        int arr[]={6,3,9,5,2,8};
+        int arr[]={6,3,9,5,2,8,-2};
         mergeSort_(arr,0, arr.length-1);
         printArr(arr);
     }
