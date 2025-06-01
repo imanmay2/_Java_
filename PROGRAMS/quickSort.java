@@ -5,10 +5,18 @@ public class quickSort {
 
         for(int j=si;j<ei;j++){
             if(arr[j]<arr[ei]){
-
-                
+                i++;
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
             }
         }
+
+        i++;
+        //swapping the pivot value with the ith idx.
+        int temp=arr[ei];
+        
+        
     }
     public static void quickSort_(int arr[],int si,int ei){
         
