@@ -10,7 +10,6 @@ public class mergeSort {
         while(i<=mid  && j<=ei){
             if(arr[i]<arr[j]){
                 temp[k]=arr[i];
-
                 i++;
             } else{
                 temp[k]=arr[j];
@@ -35,34 +34,41 @@ public class mergeSort {
 
 
         //copying the temp array to the original array.
-        for(i=0;i<temp.length;i++){
-            arr[i]=temp[i];
+        for(i=si,k=0;k<temp.length;i++,k++){
+            arr[i]=temp[k];
         }
     }
-    public static void mergeSort(int arr[],int si,int ei){
+    public static void mergeSort_(int arr[],int si,int ei){
         if(si>=ei){
 
             //base case
             return;
         }
 
-        int mid=si+(ei-si)/2;
+        int mid=si+((ei-si)/2);
 
         //mergeSort for the left array.
-        mergeSort(arr, si, mid);
+        mergeSort_(arr, si, mid);
 
         ///mergeSort for the right array
-        mergeSort(arr,mid+1, ei);
+        mergeSort_(arr,mid+1, ei);
 
         //merging  the right and left most array.
         merge(arr, si, mid, ei);
-
     } 
+
+    public static void  printArr(int arr[]){
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
     
 
 
     public  static void main(String args[]){
         int arr[]={6,3,9,5,2,8};
-        mergeSort(arr, 0, arr.length-1);
+        mergeSort_(arr,0, arr.length-1);
+        printArr(arr);
     }
 }
