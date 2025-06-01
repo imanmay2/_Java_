@@ -1,33 +1,28 @@
-// Write a program that will compress the string..
-//          E.g-- aaaabbcc
-//                output : a4b2c2.
-
-
-
-
-import java.util.*;
-public class string_compression{
-    public static String compress(String str){
-        String newStr="";
+import java.util.Scanner;
+public class String_Compression {
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        StringBuilder sb=new StringBuilder();
+        System.out.print("Enter the string: ");
+        String str=sc.nextLine();
+        
         for(int i=0;i<str.length();i++){
-            Integer ct=1;
-            newStr+=str.charAt(i);
-            while(i<str.length()-1 && str.charAt(i)==str.charAt(i+1)){
-                ct++;
+            char ch=str.charAt(i);
+            int count=1;
+
+            while(i+1<str.length() && ch==str.charAt(i+1)){
+                count++;
                 i++;
             }
-            if(ct>1){
-                newStr+=ct.toString();
+            if(count>1){
+                sb.append(ch+Integer.toString(count));
+                continue;
             }
+
+            sb.append(ch);
+
         }
-        return newStr;
-    }
 
-
-
-
-    public static void main(String args[]){
-        String str="aaabbc";
-        System.out.print(compress(str));
+        System.out.println("String is: "+sb.toString());
     }
 }

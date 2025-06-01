@@ -1,64 +1,29 @@
-import java.util.*;
-public class classes_objects{
+import java.util.Scanner;
+
+public class classes_objects {
     public static void main(String args[]){
-        Pen p1=new Pen();
-        p1.setColor("Blue");
-        System.out.println(p1.color);
-
-        bankAcc b1=new bankAcc();    // constructor.
-        b1.setPass("hello@1234");   // settters.
-        System.out.println(b1.getPass());   // getters.
-
-
-        Student s1=new Student();
-        
-
-
-        // copying the data from s1 object to a new object...
-        Student s2=new Student(s1);         // shallow copy...
-        
-
-        System.out.println(s2.name);
-        System.out.println(s2.roll);
-        System.out.println(s2.password);
-
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the name of the Student: ");
+        String name=sc.nextLine();
+        Greet g1=new Greet();
+        g1.setName(name);
+        System.out.print("Name you have entered is "+g1.getName());
     }
 }
 
 
-class Pen{
+class Greet{
     String color;
-    int tip;
-    void setColor(String newColor){
-        color=newColor;
+    String name;
+    Greet(){
+        System.out.println("Hello , Java. welcome to Object oriented programming.");
     }
-}
 
-
-class bankAcc{
-    public String username;
-    private String password;
-    public void setPass(String password){
-        this.password=password;
+    void setName(String name){
+        this.name=name;
     }
-    public String getPass(){
-        return this.password;           // passwords can't be accessed.
-    }
-}
 
-
-class Student {
-    String name="Anwesha";
-    int roll=1;
-    String password="hello@1234";
-    // Student(String name){       //constructor
-    //     this.name=name;
-    // }
-}
-class Student{
-    Student(Student s1){
-        this.name=s1.name;
-        this.password=s1.password;
-        this.roll=s1.roll;
+    String getName(){
+        return this.name;
     }
 }
