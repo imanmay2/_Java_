@@ -31,7 +31,6 @@ public class reverseAL {
             int ele=sc.nextInt();
             arr.add(ele);
         }
-
         reverseArr(arr);
         printArr(arr);
     }
