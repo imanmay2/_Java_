@@ -14,9 +14,8 @@ public class quick_sort{
 
     public static int partition(int arr[],int si,int ei){
         int i=si-1;
-        int pivot=arr[ei];
         for(int j=si;j<ei;j++){
-            if(arr[j]<=pivot){
+            if(arr[j]<=arr[ei]){
                 i++;
                 int temp=arr[j];
                 arr[j]=arr[i];
@@ -40,7 +39,7 @@ public class quick_sort{
 
 
     public static void main(String args[]){
-        int arr[]={6,3,9,8,2,5,-1};
+        int arr[]={6,3,9,8,2,5};
         quick_sort(arr,0,arr.length-1);
         print(arr);
     }
