@@ -8,6 +8,19 @@ public class reverseAL {
             System.out.print(arr.get(i)+" ");
         }
     }
+
+    public static void reverseArr(ArrayList<Integer> arr){
+        int left=0;
+        int right=arr.size()-1;
+        while(left<right){
+            int temp=arr.get(left);
+            arr.set(left,arr.get(right));
+            arr.set(right,temp);
+
+            left++;
+            right--;
+        }
+    }
     public  static void main(String args[]){
         ArrayList<Integer> arr=new ArrayList<>();
         System.out.println("Enter the size of  the array: ");
@@ -18,6 +31,8 @@ public class reverseAL {
             int ele=sc.nextInt();
             arr.add(ele);
         }
+
+        reverseArr(arr);
         printArr(arr);
     }
 }
