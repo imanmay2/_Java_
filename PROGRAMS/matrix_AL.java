@@ -1,32 +1,32 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class two_Dimensional_AL{
-
-    public static void print2D_Arr(ArrayList<ArrayList<Integer>> arr){
-        for(int i=0;i<arr.size();i++){
-            for(int j=0;j<arr.get(i).size();j++){
-                System.out.print(arr.get(i).get(j)+" ");
+public class matrix_AL {
+    public static void printArr(ArrayList<ArrayList<Integer>> arr1){
+        for(int i=0;i<arr1.size();i++){
+            for(int j=0;j<arr1.get(i).size();j++){
+                System.out.print(arr1.get(i).get(j)+" ");
             }
             System.out.println();
+
         }
     }
     public static void main(String args[]){
         ArrayList<ArrayList<Integer>> arr1=new ArrayList<>();
-       
-        int row=3;
-        int col=4;
         
         Scanner sc=new Scanner(System.in);
+
+        int row=2;
+        int col=3;
         for(int i=0;i<row;i++){
-             ArrayList<Integer> arr2=new ArrayList<>();
+            ArrayList<Integer> arr2=new ArrayList<>();
             for(int j=0;j<col;j++){
-                System.out.print("Enter the element: ");
                 arr2.add(sc.nextInt());
             }
             arr1.add(arr2);
         }
 
-        print2D_Arr(arr1);
+        ///print the 2D ArrayList.
+        printArr(arr1);
     }
 }
