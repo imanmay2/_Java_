@@ -178,6 +178,8 @@ public class linked_list {
       return;
      }
 
+     
+
 
       public static void main(String args[]){
         linked_list ll=new linked_list();
