@@ -129,14 +129,65 @@ public class linked_list {
      }
 
 
+
+     //middleNode
+     public Node middleNode(Node head){
+      //slow fast technique.
+      Node slow=head;
+      Node fast=head;
+      while(fast!=null && fast.next!=null){
+         slow=slow.next;
+         fast=fast.next.next;
+      }
+      return slow; 
+     }
+
+     public void checkPallindrome(){
+      if(head==null || head.next==null){
+         System.out.println("Pallindrome!");
+         return;
+      }
+
+      //find the middleNode.
+      Node midNode=middleNode(head);
+
+
+      //reverse the 2nd half of the LinkedList.
+      Node curr=midNode;
+      Node prev=null;
+      Node next;
+      while(curr!=null){
+         next=curr.next;
+         curr.next=prev;
+         prev=curr;
+         curr=next;
+      }
+      Node left=head;
+      Node right=prev;
+
+      //checking the pallindrome from the left side LL with the right side LL.
+      while(right!=null){
+         if(left.data!=right.data){
+            System.out.println("Not Pallindrome");
+            return;
+         }
+         left=left.next;
+         right=right.next;
+      }
+      System.out.println("LinkedList is pallindrome.");
+      return;
+     }
+
+
       public static void main(String args[]){
         linked_list ll=new linked_list();
         ll.addLast(1);
         ll.addLast(2);
-        ll.addLast(4);
-        ll.addLast(5);
+        ll.addLast(0);
+        ll.addLast(2);
+        ll.addLast(0);
         ll.print_LL();
-
+        ll.checkPallindrome();
         
       //   ll.reverse();
       //   ll.print_LL();
@@ -147,6 +198,6 @@ public class linked_list {
       //   ll.print_LL();
       //   ll.removeFirst();
       //   ll.print_LL();
-        ll.recursiveSearch(4, head, 0);
+      //   ll.recursiveSearch(4, head, 0);
      }
 }
