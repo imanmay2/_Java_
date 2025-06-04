@@ -37,14 +37,15 @@ public class Loop_LL {
 
     public void removeCycle(){
         boolean isCycle=false;
-        Node slow=null;
-        Node fast=null;
+        Node slow=head;
+        Node fast=head;
 
         while(fast!=null && fast.next!=null){
             slow=slow.next;
             fast=fast.next.next;
             if(slow==fast){
                 isCycle=true;
+                break;
             }
         }
         if(!isCycle){
@@ -85,7 +86,7 @@ public class Loop_LL {
         fifth.next = third;
 
         
-        // ll.checkFlyods_LL();
+        ll.checkFlyods_LL();
         ll.removeCycle();
         ll.checkFlyods_LL();
     }
