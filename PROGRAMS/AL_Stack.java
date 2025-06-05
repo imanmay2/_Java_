@@ -29,7 +29,10 @@ public class AL_Stack {
         }
 
         public void display(){
-            System.out.println(list);
+            for(int i=list.size()-1;i>=0;i--){
+                System.out.print(list.get(i)+" ");
+            }
+            System.out.println();
         }
     }
     public static void main(String args[]){
