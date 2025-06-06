@@ -3,7 +3,7 @@ import java.util.Stack;
 public class reverseStack {
 
     public static void pushBottom(Stack<Integer> s, int data) {
-        if (!s.isEmpty()) {
+        if (s.isEmpty()) {
             s.push(data);
             return;
         }
@@ -14,10 +14,9 @@ public class reverseStack {
 
 
     public static void reverse_Stack(Stack<Integer> s){
-        if(!s.isEmpty()){
+        if(s.isEmpty()){
             return;
         }
-
         int top=s.pop();
         reverse_Stack(s);
         pushBottom(s, top);
