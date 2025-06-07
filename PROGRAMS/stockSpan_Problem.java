@@ -4,7 +4,7 @@ public class stockSpan_Problem {
 
     public static void calcSpan(int arr[], int span[]) {
         Stack<Integer> s = new Stack<>();
-        for (int i = 0; i < arr.length - 1; i++) {
+        for (int i = 0; i < arr.length - 1; i++){
             while (!s.isEmpty() && arr[i] >= arr[s.peek()]) {
                 s.pop();
             }
@@ -12,7 +12,6 @@ public class stockSpan_Problem {
                 span[i] = i + 1;
             } else {
                 span[i] = i - s.peek();
-                System.out.print(" + + " + span[i]);
             }
             s.push(i);
         }
