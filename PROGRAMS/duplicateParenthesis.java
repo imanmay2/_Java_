@@ -22,7 +22,7 @@ public class duplicateParenthesis{
         if(s.isEmpty()){
             return false;  // No duplicate
         }
-        return true;  //Having duplicate.
+        return false;  //Having duplicate.
     }
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
