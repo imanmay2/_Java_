@@ -80,6 +80,16 @@ public class Binary_Tree {
         int right=countNodes(root.right);
         return left+right+1;   //calculating the count of the node.
        }
+
+
+       public int heightNode(Node root){
+        if(root==null){
+            return 0;
+        }
+        int left=heightNode(root.left);
+        int right=heightNode(root.right);
+        return Math.max(left, right)+1;
+       }
     }
     public static void main(String args[]){
         int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -101,5 +111,7 @@ public class Binary_Tree {
         System.out.println("Sum of the Nodes are: "+tree.sumNodes(root));
         System.out.println();
         System.out.println("Sum of the Nodes are: "+tree.countNodes(root));
+         System.out.println();
+        System.out.println("Max height of the Nodes are: "+tree.heightNode(root));
     }
 }
