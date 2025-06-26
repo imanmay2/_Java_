@@ -1,3 +1,5 @@
+import java.util.*;
+import java.util.LinkedList;
 public class binaryTree_part1 {
 
     static class Node {
@@ -78,10 +80,31 @@ public class binaryTree_part1 {
             return Math.max(countNodes(root.left), countNodes(root.right)) + 1;
         }
 
-
+        
         public static void levelOrderTraversal(Node root){
-            
+            if(root==null){
+                return;
+            }
+            Queue<Node> q1=new LinkedList<>();
+            q1.add(root);
+            q1.add(null);
 
+            while(!q1.isEmpty()){
+                Node currNode=q1.remove();
+                if(currNode==null){
+                    if(q1.isEmpty()){
+                        break;
+                    }
+                    q1.add(null);
+                } else{
+                    System.out.print(currNode.data+" ");
+                    if(currNode.left!=null){
+                        q1.add(currNode.left);
+                    } if(currNode.right!=null){
+                        q1.add(currNode.right);
+                    }
+                }
+            }
         }
     }
 
@@ -89,19 +112,22 @@ public class binaryTree_part1 {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
         BinaryTree_ b1 = new BinaryTree_();
         Node root = b1.buildTree(nodes);
-        System.out.println("Tree build is: " + root.data);
-        System.out.println();
-        b1.preOrderTraversal(root);
-        System.out.println();
-        b1.inOrderTraversal(root);
-        System.out.println();
-        b1.postOrderTraversal(root);
-        System.out.println();
-        System.out.print("Sum of the nodes is : " + b1.sumNodes(root));
-        System.out.println();
-        System.out.print("Sum of the nodes is : " + b1.countNodes(root));
+        // System.out.println("Tree build is: " + root.data);
+        // System.out.println();
+        // b1.preOrderTraversal(root);
+        // System.out.println();
+        // b1.inOrderTraversal(root);
+        // System.out.println();
+        // b1.postOrderTraversal(root);
+        // System.out.println();
+        // System.out.print("Sum of the nodes is : " + b1.sumNodes(root));
+        // System.out.println();
+        // System.out.print("Sum of the nodes is : " + b1.countNodes(root));
+
+        // System.out.println();
+        // System.out.print("Maximum height of the nodes is : " + b1.maxHeightNode(root));
 
         System.out.println();
-        System.out.print("Maximum height of the nodes is : " + b1.maxHeightNode(root));
+        b1.levelOrderTraversal(root);
     }
 }
