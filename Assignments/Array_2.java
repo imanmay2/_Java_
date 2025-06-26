@@ -20,8 +20,6 @@ public class Array_2{
             System.out.print("Enter the element: ");
             arr[i]=sc.nextInt();
         }
-
-
         System.out.println(question1(arr));
     }
 }
