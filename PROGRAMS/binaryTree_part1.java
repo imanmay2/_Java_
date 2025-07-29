@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class binaryTree_part1{
 
     static class Node{
@@ -102,7 +105,34 @@ public class binaryTree_part1{
 
 
         //Level Order Traversal. 
-        
+         public static void levelOrderTraversal(Node root){
+            if(root==null){
+                return;
+            }
+
+            Queue<Node> q1=new LinkedList<>();
+            q1.add(root);
+            q1.add(null);
+
+            while(!q1.isEmpty()){
+                Node currNode=q1.remove();
+                
+                if(currNode!=null){
+                    System.out.print(currNode.data+" ");
+                    if(currNode.left!=null){
+                        q1.add(currNode.left);
+                    } if(currNode.right!=null){
+                        q1.add(currNode.right);
+                    }
+                } else if(currNode==null){
+                    if(q1.isEmpty()){
+                        break;
+                    } else{
+                        q1.add(null);
+                    }
+                }
+            }
+        }
     }
     public static void main(String args[]){
         int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
