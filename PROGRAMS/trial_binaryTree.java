@@ -1,3 +1,5 @@
+import java.util.Queue;
+import java.util.LinkedList;
 public class trial_binaryTree {
 
     static class Node{
@@ -39,12 +41,33 @@ public class trial_binaryTree {
             return leftNode+rightNode+root.data;
         }
 
-        public static void levelOrderTraversal(Nodes root){
+        public static void levelOrderTraversal(Node root){
             if(root==null){
                 return;
             }
 
-            
+            Queue<Node> q1=new LinkedList<>();
+            q1.add(root);
+            q1.add(null);
+
+            while(!q1.isEmpty()){
+                Node currNode=q1.remove();
+                
+                if(currNode!=null){
+                    System.out.print(currNode.data+" ");
+                    if(currNode.left!=null){
+                        q1.add(currNode.left);
+                    } if(currNode.right!=null){
+                        q1.add(currNode.right);
+                    }
+                } else if(currNode==null){
+                    if(q1.isEmpty()){
+                        break;
+                    } else{
+                        q1.add(null);
+                    }
+                }
+            }
         }
     }
     public static void main(String args[]){
@@ -55,5 +78,8 @@ public class trial_binaryTree {
         System.out.println("Root of the data: "+root.data);
         
         System.out.println("Sum of the Nodes is: "+b1.sumNodes(root));
+
+        System.out.println("Level Order Traversal");
+        b1.levelOrderTraversal(root);
     }
 }
