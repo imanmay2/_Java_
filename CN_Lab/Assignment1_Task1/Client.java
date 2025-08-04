@@ -1,11 +1,6 @@
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket; //client will send connection to Server via connect method.
-import java.net.UnknownHostException;
-
+import java.io.*;
+import java.net.*;
 public class client {
-
     private Socket socket = null;
     private DataInputStream input = null;
     private DataOutputStream output = null;
@@ -37,7 +32,6 @@ public class client {
                 return;
             }
         }
-
             try{
                 input.close();
                 output.close();
@@ -47,7 +41,6 @@ public class client {
                 return;
             }
     }
-
     public static void main(String args[]) {
         client cli=new client("127.0.0.1",5001);
     }
