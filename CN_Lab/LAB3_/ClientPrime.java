@@ -1,6 +1,6 @@
 // Develop a client server program in which client sends a number and 
 // server receives the same. Server checks whether prime or not and display the same in server.
-
+//Manmay Chakraborty , Reg: 24BAI1316
 
 import java.util.*;
 import java.net.*;
