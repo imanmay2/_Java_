@@ -11,6 +11,15 @@ public class binaryTree__2 {
         }
     }
 
+    static class Info{
+        int height;
+        int diameter;
+        public Info(int height,int diameter){
+            this.height=height;
+            this.diameter=diameter;
+        }
+    }
+
     static class BinaryTree2{
         static int idx=-1;
         public static Node buildTree(int nodes[]){
@@ -44,6 +53,21 @@ public class binaryTree__2 {
             int rd=treeDiameter(root.right);
             return Math.max(Math.max(ld,rd),(lh+rh+1));
         }
+
+
+        public static Info treeDiameter2(Node root){
+            if(root==null){
+                return new Info(0,0);
+            }
+
+            Info leftInfo=treeDiameter2(root.left);
+            Info rightInfo=treeDiameter2(root.right);
+
+            int diameter=Math.max(Math.max(leftInfo.diameter,rightInfo.diameter),leftInfo.height+rightInfo.height+1);
+            int height=Math.max(leftInfo.height,rightInfo.height)+1;
+
+            return new Info(height,diameter);
+        }
     }
     public static void main(String args[]){
         BinaryTree2 tree=new BinaryTree2();
@@ -51,6 +75,6 @@ public class binaryTree__2 {
         Node root=tree.buildTree(nodes);
         System.out.println("Root is : "+root.data);
 
-        System.out.println("Diameter of the Tree is : "+tree.treeDiameter(root));
+        System.out.println("Diameter of the Tree is : "+tree.treeDiameter2(root).diameter);
     }
 }
