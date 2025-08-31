@@ -65,8 +65,34 @@ public class binaryTree__2 {
 
             int diameter=Math.max(Math.max(leftInfo.diameter,rightInfo.diameter),leftInfo.height+rightInfo.height+1);
             int height=Math.max(leftInfo.height,rightInfo.height)+1;
-
             return new Info(height,diameter);
+        }
+
+        public static boolean isSubtree(Node root,Node subroot){
+            //base case.
+            if(root==null){
+                return false;
+            }
+
+            if(root.data==subroot.data){
+                if(isIdentical(root,subroot)){
+                    return true;
+                }
+            }
+
+            return isSubtree(root.left, subroot) || isSubtree(root.right, subroot);
+        }
+
+        public static boolean isIdentical(Node root,Node subroot){
+            if(root==null && subroot==null){
+                return true;
+            } else if(root==null || subroot==null ||root.data!=subroot.data){
+                return false;
+            } else if(!isIdentical(root.left, subroot.left)){
+                return false;
+            }else if(!isIdentical(root.right, subroot.right)){
+                return false;
+            }
         }
     }
     public static void main(String args[]){
