@@ -67,32 +67,30 @@ public class binaryTree__2 {
             return new Info(height,diameter);
         }
 
-        public static boolean isSubtree(Node root,Node subroot){
-            //base case.
+        public static boolean isSubtree(Node root,Node subRoot){
+            //base case
             if(root==null){
                 return false;
             }
 
-            if(root.data==subroot.data){
-                if(isIdentical(root,subroot)){
+            if(root.data==subRoot.data){
+                if(isIdentical(root, subRoot)){
                     return true;
                 }
             }
-
-            return isSubtree(root.left, subroot) || isSubtree(root.right, subroot);
+            return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
         }
 
-        public static boolean isIdentical(Node root,Node subroot){
-            if(root==null && subroot==null){
+        public static boolean isIdentical(Node root,Node subRoot){
+            if(root==null && subRoot==null){
                 return true;
-            } else if(root==null || subroot==null ||root.data!=subroot.data){
+            } else if(root==null || subRoot==null || root.data!=subRoot.data){
                 return false;
-            } else if(!isIdentical(root.left, subroot.left)){
+            } else if(!isIdentical(root.left, subRoot.left)){
                 return false;
-            }else if(!isIdentical(root.right, subroot.right)){
+            } else if(!isIdentical(root.right, subRoot.right)){
                 return false;
             }
-
             return true;
         }
     }
@@ -102,10 +100,11 @@ public class binaryTree__2 {
         int node2[]={2,4,-1,-1,5,-1,-1};
         Node root=tree.buildTree(nodes);
         idx=-1;
-        Node subroot=tree.buildTree(node2);
+        Node subRoot=tree.buildTree(node2);
         // System.out.println("Root is : "+root.data);
         // System.out.println("Diameter of the Tree is : "+tree.treeDiameter2(root).diameter);
 
-        System.out.println(tree.isSubtree(root,subroot)?"Yes, a Subtree":"No, not a Subtree");
+        System.out.println(tree.isSubtree(root,subRoot)?"Yes , a Subtree" : "No, not a Subtree");
+        
     }
 }
