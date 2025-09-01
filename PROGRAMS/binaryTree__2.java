@@ -1,5 +1,5 @@
 public class binaryTree__2 {
-
+    static int idx=-1;
     static class Node{
         int data;
         Node left;
@@ -21,7 +21,6 @@ public class binaryTree__2 {
     }
 
     static class BinaryTree2{
-        static int idx=-1;
         public static Node buildTree(int nodes[]){
             idx++;
             if(nodes[idx]==-1){
@@ -93,13 +92,20 @@ public class binaryTree__2 {
             }else if(!isIdentical(root.right, subroot.right)){
                 return false;
             }
+
+            return true;
         }
     }
     public static void main(String args[]){
         BinaryTree2 tree=new BinaryTree2();
         int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        int node2[]={2,4,-1,-1,5,-1,-1};
         Node root=tree.buildTree(nodes);
-        System.out.println("Root is : "+root.data);
-        System.out.println("Diameter of the Tree is : "+tree.treeDiameter2(root).diameter);
+        idx=-1;
+        Node subroot=tree.buildTree(node2);
+        // System.out.println("Root is : "+root.data);
+        // System.out.println("Diameter of the Tree is : "+tree.treeDiameter2(root).diameter);
+
+        System.out.println(tree.isSubtree(root,subroot)?"Yes, a Subtree":"No, not a Subtree");
     }
 }
