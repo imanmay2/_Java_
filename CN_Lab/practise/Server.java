@@ -3,6 +3,20 @@ import java.net.*;
 import java.io.*;
 
 public class Server {
+
+    public static boolean checkPrime(int n){
+        int ct=0;
+        for(int i=1;i<=n;i++){
+            if(n%i==0){
+                ct++;
+            }
+        }
+
+        if(ct==2){
+            return true;
+        }
+        return false;
+    }
     public static void main(String args[]){
         try(ServerSocket serverSocket=new ServerSocket(5009)){
             System.out.println("Server is connected.");
@@ -16,9 +30,11 @@ public class Server {
             PrintWriter out=new PrintWriter(socket.getOutputStream());
 
             String str=in.readLine();
+            int num=Integer.parseInt(str);
 
-            System.out.println("Received from the client : "+str);
-            out.println("Length of the string calculated is : "+str.length());
+            System.out.println("Number Received from the client : "+str);
+            String dataS=checkPrime(num)?"True":"False";
+            out.println(dataS);
             out.flush();
 
             socket.close();

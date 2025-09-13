@@ -9,15 +9,19 @@ public class Client {
             PrintWriter out=new PrintWriter(socket.getOutputStream());  //sending data to the Server.
             BufferedReader in=new BufferedReader(new InputStreamReader(socket.getInputStream()));   // fetching data from the server.
 
-            System.out.println("Enter the String to be send: ");
+            System.out.println("Enter the Number to be send: ");
             String str=sc.nextLine();
             out.println(str);
             out.flush();
-            System.out.println("String send to the server : "+str);
+            System.out.println("Number send to the server : "+str);
 
             String strRes=in.readLine(); // data from server.
             
-            System.out.println("Data from Server : "+strRes);
+            if(strRes.equals("True")){
+                System.out.println(str+" is a prime number.");
+            } else{
+                System.out.println(str+" is not a prime number.");
+            }
 
             socket.close();
             System.out.println("Connection Closed.");
