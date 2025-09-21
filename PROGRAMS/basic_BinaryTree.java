@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class basic_BinaryTree {
 
     static class Node {
@@ -92,6 +94,48 @@ public class basic_BinaryTree {
             kthLevelTree(root.left, k, level+1);
             kthLevelTree(root.right, k, level+1);
         }
+
+
+        public static boolean getPath(Node root,int n,ArrayList<Node> path){
+            if(root==null){
+                return false;
+            }
+
+
+            path.add(root);
+
+            if(root.data==n){
+                return true;
+            }
+
+            boolean foundLeft=getPath(root.left,n,path);
+            boolean foundRight=getPath(root.right,n,path);
+
+            if(foundLeft || foundRight){
+                return true;
+            }
+
+            path.remove(path.size()-1);
+            return false;
+        }
+
+        public static int LCA(Node root,int n1,int n2){
+            ArrayList<Node> path1=new ArrayList<>();
+            ArrayList<Node> path2=new ArrayList<>();
+
+            getPath(root,n1,path1);
+            getPath(root,n2,path2);
+
+            int i;
+            int s=(path1.size()<path2.size())?path1.size() : path2.size();
+            for(i=0;i<s;i++){
+                if(path1.get(i)!=path2.get(i)){
+                    break;
+                }
+            }
+
+            return path1.get(i-1).data;
+        }
     }
 
     public static void main(String args[]) {
@@ -110,5 +154,9 @@ public class basic_BinaryTree {
 
         System.out.println("The kth traversal nodes are : ");
         tree.kthLevelTree(root,3,1);
+
+        System.out.println();
+
+        System.out.println("Lowest Commn Ancestor is as follows : "+tree.LCA(root, 5, 4));
     }
 }
