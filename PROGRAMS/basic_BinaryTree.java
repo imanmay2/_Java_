@@ -133,9 +133,27 @@ public class basic_BinaryTree {
                     break;
                 }
             }
-            
-
             return path1.get(i-1).data;
+        }
+
+        public static Node LCA2(Node root,int n1,int n2){
+            if(root==null || root.data==n1 || root.data==n2){
+                return root;
+            }
+
+
+
+            Node leftRoot=LCA2(root.left, n1, n2);
+            Node rightRoot=LCA2(root.right, n1, n2);
+
+            if(leftRoot==null){
+                return rightRoot;
+            } 
+            if(rightRoot==null){
+                return leftRoot;
+            }
+
+            return root;
         }
     }
 
@@ -158,6 +176,6 @@ public class basic_BinaryTree {
 
         System.out.println();
 
-        System.out.println("Lowest Commn Ancestor is as follows : "+tree.LCA(root, 4,6));
+        System.out.println("Lowest Commn Ancestor is as follows : "+tree.LCA2(root, 4,5).data);
     }
 }
