@@ -155,6 +155,40 @@ public class basic_BinaryTree {
 
             return root;
         }
+
+
+        public static int calcMinDist(Node root,int n){
+            if(root==null){
+                return -1;
+            }
+
+            if(root.data==n){
+                return 0;
+            }
+
+
+            int leftDist=calcMinDist(root.left, n);
+            int rightDist=calcMinDist(root.right, n);
+
+            if(leftDist==-1 && rightDist==-1){
+                return -1;
+            } else if(rightDist==-1){
+                return leftDist+1;
+            } else if(leftDist==-1){
+                return rightDist+1;
+            }
+            return 0;
+        }
+
+
+        public static int minDistNode(Node root,int n1,int n2){
+            Node lca=LCA2(root, n1, n2);
+
+            int dist1=calcMinDist(lca,n1);
+            int dist2=calcMinDist(lca,n2);
+
+            return dist1+dist2;
+        }
     }
 
     public static void main(String args[]) {
@@ -177,5 +211,8 @@ public class basic_BinaryTree {
         System.out.println();
 
         System.out.println("Lowest Commn Ancestor is as follows : "+tree.LCA2(root, 4,5).data);
+
+
+        System.out.println("Minimum distance Node is : "+tree.minDistNode(root, 4, 5));
     }
 }
