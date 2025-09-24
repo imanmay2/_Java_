@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class basic_BinaryTree {
 
@@ -190,6 +192,35 @@ public class basic_BinaryTree {
             return dist1+dist2;
         }
 
+        public static void levelOrderTraversal(Node root){
+            if(root==null){
+                return;
+            }
+
+            Queue<Node> q1=new LinkedList<>();
+            q1.add(root);
+            q1.add(null);
+
+            while(!q1.isEmpty()){
+                Node currNode=q1.remove();
+                
+                if(currNode!=null){
+                    System.out.print(currNode.data+" ");
+                    if(currNode.left!=null){
+                        q1.add(currNode.left);
+                    } if(currNode.right!=null){
+                        q1.add(currNode.right);
+                    }
+                } else if(currNode==null){
+                    if(q1.isEmpty()){
+                        break;
+                    } else{
+                        q1.add(null);
+                    }
+                }
+            }
+        }
+
 
         public static int kthAncestor(Node root ,int n1,int k){
             if(root==null){
@@ -215,6 +246,24 @@ public class basic_BinaryTree {
             }
 
             return max+1;
+        }
+
+        public static int sumTree(Node root){
+            if(root==null){
+                return 0;
+            }
+
+            int data_=root.data;
+            int leftChild=sumTree(root.left);
+            int rightChild=sumTree(root.right);
+            if(root.left==null || root.right==null){
+                root.data=leftChild+rightChild;
+                
+            } else{
+                root.data=leftChild+rightChild+root.left.data+root.right.data;
+            }
+            
+            return data_;
         }
     }
 
@@ -244,5 +293,10 @@ public class basic_BinaryTree {
         System.out.println();
         tree.kthAncestor(root,5,1);
 
+
+        System.out.println("The sum of the root is : "+tree.sumTree(root));
+
+        System.out.println("Level order traversal : ");
+        tree.levelOrderTraversal(root);
     }
 }
