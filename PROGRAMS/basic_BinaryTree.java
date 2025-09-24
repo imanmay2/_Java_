@@ -189,6 +189,33 @@ public class basic_BinaryTree {
 
             return dist1+dist2;
         }
+
+
+        public static int kthAncestor(Node root ,int n1,int k){
+            if(root==null){
+                return -1;
+            }
+
+
+            if(root.data==n1){
+                return 0;
+            }
+
+            int leftDist=kthAncestor(root.left, n1,k);
+            int rightDist=kthAncestor(root.right, n1, k);
+
+            if(leftDist==-1 && rightDist==-1){
+                return -1;
+            }
+
+            int max=Math.max(leftDist, rightDist);
+
+            if(max+1==k){
+                System.out.println("Kth Ancestor of a node is : "+root.data);
+            }
+
+            return max+1;
+        }
     }
 
     public static void main(String args[]) {
@@ -214,5 +241,8 @@ public class basic_BinaryTree {
 
 
         System.out.println("Minimum distance Node is : "+tree.minDistNode(root, 4, 5));
+        System.out.println();
+        tree.kthAncestor(root,5,1);
+
     }
 }
