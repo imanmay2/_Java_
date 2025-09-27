@@ -15,7 +15,7 @@ public class BinarySearchTree_part1 {
         }
 
         InOrderTraversal(root.left);
-        System.out.println(root.data+ " ");
+        System.out.print(root.data+ " ");
         InOrderTraversal(root.right);
     }
 
@@ -50,16 +50,57 @@ public class BinarySearchTree_part1 {
         }
         return true;
     }
+
+    
+
+    public static Node deleteNode(Node root,int key){
+        if(root.data<key){
+            root.right=deleteNode(root.right, key);
+        }
+        else if(root.data>key){
+            root.left=deleteNode(root.left, key);
+        } else{
+            //case 1 - Node is having no children.
+            if(root.left==null && root.right==null){
+                return null;
+            }
+
+            //case -2 Node having exactly one 1 child.
+            if(root.left==null){
+                return root.right;
+            }
+
+            if(root.right==null){
+                return root.left;
+            }
+
+
+            //case-3 where Node is having 2 children. 
+            Node IS=findInorderSuccessor(root.right);
+            root.data=IS.data;
+            root.right=deleteNode(root.right, IS.data);
+        }
+
+        return root;
+    }
+
+    public static Node findInorderSuccessor(Node root){
+        while(root.left!=null){
+            root=root.left;
+        }
+
+        return root;
+    }
     public static void main(String args[]){
-        int values[]={5,1,3,4,2,7};
+        int values[]={8,5,3,1,4,6,10,11,14};
         Node root=null;
         for(int i=0;i<values.length;i++){
             root=buildBST(root, values[i]);
         }
 
-        System.out.println("Inorder Traversal of the BST : ");
         InOrderTraversal(root);
-
-        searchBST(root, 9);
+        System.out.println();
+        deleteNode(root, 14);
+        InOrderTraversal(root);
     }
 }
