@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class BinarySearchTree_part1 {
 
     static class Node{
@@ -108,9 +110,49 @@ public class BinarySearchTree_part1 {
         }
     }
 
+    public static void RootToLeaf(Node root,ArrayList<Integer> list){
+        if(root==null){
+            //base case
+            return;
+        }
+
+        list.add(root.data);
+        if(root.left==null && root.right==null){
+            //root node is leaf node.
+            for(int i=0;i<list.size();i++){
+                System.out.print(list.get(i)+" ");
+            }
+            System.out.println();
+        }
+
+        RootToLeaf(root.left, list);
+        RootToLeaf(root.right, list);
+        list.remove(list.size()-1);
+    }
+
+    public static boolean validateBST(Node root,Node max,Node min){
+        if(root==null){
+            //if nothing is there in the tree, then , it's a valid tree.
+            return true;
+        }
+
+
+        //checking the false condition for the left subtree.
+        if(min!=null && min.data>=root.data){
+            return false;
+        }
+
+         //checking the false condition for the right subtree.
+        if(max!=null && max.data<=root.data){
+            return false;
+        }
+
+        return validateBST(root.left, root, null) && validateBST(root.right, null, root);
+    }
+
 
     public static void main(String args[]){
-        int values[]={8,5,3,1,4,6,10,11,14};
+        int values[]={8,5,3,6,10,11,14};
         Node root=null;
         for(int i=0;i<values.length;i++){
             root=buildBST(root, values[i]);
@@ -119,5 +161,21 @@ public class BinarySearchTree_part1 {
         InOrderTraversal(root);
         System.out.println();    
         printInRange(root, 5, 12);
+
+        System.out.println();
+
+        ArrayList<Integer> list=new ArrayList<>();
+
+        System.out.println("Root to Leaf Possible paths are : ");
+
+        RootToLeaf(root, list);
+
+        System.out.println();
+
+        if(validateBST(root, null, null)){
+            System.out.println("Is a valid BST.");
+        } else{
+            System.out.println("Is not a valid BST.");
+        }
     }
 }
