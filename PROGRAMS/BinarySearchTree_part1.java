@@ -150,9 +150,33 @@ public class BinarySearchTree_part1 {
         return validateBST(root.left, root, null) && validateBST(root.right, null, root);
     }
 
+    public static Node mirrorBST(Node root){
+        if(root==null){
+            return null;
+        }
+        Node leftS=mirrorBST(root.left);
+        Node rightS=mirrorBST(root.right);
+
+        root.left=rightS;
+        root.right=leftS;
+
+        return root;
+    }
+
+    public static void preOrder(Node root){
+        if(root==null){
+            return;
+        }
+
+        System.out.println(root.data);
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
+
 
     public static void main(String args[]){
-        int values[]={8,5,3,6,10,11,14};
+        int values[]={8,5,3,6,10,11};
         Node root=null;
         for(int i=0;i<values.length;i++){
             root=buildBST(root, values[i]);
@@ -177,5 +201,9 @@ public class BinarySearchTree_part1 {
         } else{
             System.out.println("Is not a valid BST.");
         }
+
+        Node r=mirrorBST(root);
+        preOrder(r);
+        
     }
 }
