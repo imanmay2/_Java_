@@ -163,6 +163,8 @@ public class BinarySearchTree_part1 {
         return root;
     }
 
+   
+
     public static void preOrder(Node root){
         if(root==null){
             return;
