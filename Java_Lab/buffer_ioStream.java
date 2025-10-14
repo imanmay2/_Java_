@@ -5,7 +5,7 @@ public class buffer_ioStream{
     public static void main(String args[]){
         try{
             BufferedReader br=new BufferedReader(new FileReader("hello.txt"));
-            BufferedWriter bw=new BufferedWriter(new FileWriter("hello_.txt"));
+            BufferedWriter bw=new BufferedWriter(new FileWriter("self.txt"));
 
             String line;
             while((line=br.readLine())!=null){
@@ -13,10 +13,15 @@ public class buffer_ioStream{
                 bw.newLine();
             }
 
-            bw.close();
             br.close();
-        } catch(IOException e){
-            System.out.println("Error occured : "+ e.getMessage());
+            bw.close();
+        } catch(Exception e){
+            System.out.println("Exception occured : "+e.getMessage());
+
         }
+         finally{
+            System.out.println("File Content has been transferred.");
+
+         }
     }
 }
