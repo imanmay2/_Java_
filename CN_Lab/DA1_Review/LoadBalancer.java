@@ -41,20 +41,21 @@ public class LoadBalancer {
     }
 
     private static void forward(Socket from, Socket to) {
-        try {
-            InputStream in = from.getInputStream();
-            OutputStream out = to.getOutputStream();
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = in.read(buffer)) != -1) {
-                out.write(buffer, 0, bytesRead);
-                out.flush();
-            }
-        } catch (IOException e) {
-            // Ignore
-        } finally {
-            try { from.close(); } catch (IOException ignored) {}
-            try { to.close(); } catch (IOException ignored) {}
+    try {
+        InputStream in = from.getInputStream();
+        OutputStream out = to.getOutputStream();
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+        while ((bytesRead = in.read(buffer)) != -1) {
+            out.write(buffer, 0, bytesRead);
+            out.flush();
         }
+
+    } catch (IOException e) {
+        System.err.println("Data forwarding error: " + e.getMessage());
+    } finally {
+        try { from.close(); } catch (IOException ignored) {}
+        try { to.close(); } catch (IOException ignored) {}
     }
+}
 }
