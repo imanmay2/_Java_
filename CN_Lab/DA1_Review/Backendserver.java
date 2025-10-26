@@ -66,12 +66,14 @@ public class Backendserver {
                 return toTitleCase(data);
             case "PALINDROME":
                 return isPalindrome(data) ? "Yes, it's a palindrome" : "No, not a palindrome";
+            case "STATUS":
+                return SystemMonitor.getSystemUsage();
             default:
                 return "Unknown command: " + command;
         }
     }
 
-    // Helper methods for string processing
+    // ---------------- Helper Methods ----------------
     private int countVowels(String s) {
         int count = 0;
         for (char c : s.toLowerCase().toCharArray()) {
