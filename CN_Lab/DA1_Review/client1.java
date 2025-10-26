@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class Client1 {
+public class client1 {
 
     public static void main(String[] args) {
         String host = "localhost";
