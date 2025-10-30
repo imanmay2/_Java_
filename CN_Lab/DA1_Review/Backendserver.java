@@ -73,7 +73,7 @@ public class Backendserver {
         }
     }
 
-    // ---------------- Helper Methods ----------------
+    // Helper Methods
     private int countVowels(String s) {
         int count = 0;
         for (char c : s.toLowerCase().toCharArray()) {

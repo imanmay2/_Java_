@@ -31,6 +31,8 @@ public class LoadBalancer {
     private static final int HEALTH_CHECK_TIMEOUT_MS = 1000;
 
     public static void main(String[] args) throws IOException {
+
+        //for initialization purpose.
         for (InetSocketAddress s : backendServers) {
             activeConnections.put(s, 0);
             backendHealthy.put(s, false);

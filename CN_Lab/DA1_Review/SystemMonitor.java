@@ -5,7 +5,7 @@ public class SystemMonitor {
 
     public static String getSystemUsage() {
         OperatingSystemMXBean osBean = (OperatingSystemMXBean)
-                ManagementFactory.getOperatingSystemMXBean();
+ManagementFactory.getOperatingSystemMXBean();
 
         double processCpuLoad = osBean.getProcessCpuLoad() * 100;
         double systemCpuLoad = osBean.getSystemCpuLoad() * 100;
