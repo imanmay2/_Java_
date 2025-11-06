@@ -26,7 +26,7 @@ public class LoadBalancer {
     private static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private static int currentServerIndex = 0;
 
-    private static final String MODE = "leastconnection"; // or "roundrobin"
+    private static final String MODE = "roundrobin"; // or "roundrobin"
     private static final int HEALTH_CHECK_INTERVAL_SECONDS = 5;
     private static final int HEALTH_CHECK_TIMEOUT_MS = 1000;
 
