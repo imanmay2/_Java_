@@ -14,11 +14,20 @@ public class Server {
             PrintWriter out=new PrintWriter(socket.getOutputStream(),true);
 
             //accepting the data from the client.
-            String str=in.readLine();
-            System.out.println("Received from the client : "+str);
+            String str="";
 
-            System.out.println("Length send back to the client.");
-            out.println(Integer.toString(str.length()));
+            while(true){
+                str=in.readLine();
+                if(str.equals("end") || str==null){
+                    break;
+                }
+
+                System.out.println("Received from the client : "+str);
+                out.println(str.length());
+            }
+
+            
+            
 
             socket.close();
             System.out.println("Connection closed.");
