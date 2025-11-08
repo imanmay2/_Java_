@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.net.*;
 
-public class Server {
+public class Server2 {
     public static void main(String args[]){
         try(ServerSocket serverSocket=new ServerSocket(5009)){
             System.out.println("Waiting for the client to connect..");
