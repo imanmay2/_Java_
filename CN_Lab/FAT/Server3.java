@@ -27,13 +27,18 @@ public class Server3 {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
             String str = in.readLine();
-            int num = Integer.parseInt(str);
+            try{
+                int num = Integer.parseInt(str);
             boolean check = prime(num);
             if (check) {
                 out.println(str + " is Prime");
             } else {
                 out.println(str + " is not prime");
             }
+            } catch(Exception e1){
+                out.println("Enter a valid number.");
+            }
+            
 
         } catch (IOException e) {
             e.printStackTrace();
