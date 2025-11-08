@@ -3,7 +3,6 @@ import java.io.*;
 import java.net.*;
 
 public class Server3 {
-
     public static boolean prime(int n) {
         int ct = 0;
         for (int i=1;i<=n;i++) {
@@ -14,7 +13,6 @@ public class Server3 {
         if (ct == 2) {
             return true;
         }
-
         return false;
     }
 
@@ -38,8 +36,6 @@ public class Server3 {
             } catch(Exception e1){
                 out.println("Enter a valid number.");
             }
-            
-
         } catch (IOException e) {
             e.printStackTrace();
         }
