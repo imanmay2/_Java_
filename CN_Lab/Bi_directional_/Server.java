@@ -3,6 +3,7 @@ import java.net.*;
 
 public class Server {
     // Reg: 24BAI1316 , Manmay Chakraborty
+    
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(5001)) {
             System.out.println("Server started and waiting for client...");
