@@ -3,24 +3,39 @@ import java.io.*;
 import java.net.*;
 
 public class Server7 {
-    public static void main(String args[]){
-        try(ServerSocket serverSocket=new ServerSocket(5009)){
-            System.out.println("Waiting for the client to connect..");
-            Socket socket=serverSocket.accept();
-            System.out.println("Client connected .");
+    public static void main(String args[]) {
+        try (ServerSocket serverSocket = new ServerSocket(8007)) {
+            System.out.println("Waiting for Clients to join ..");
+            ArrayList<Socket> clients = new ArrayList<>();
 
-            BufferedReader in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            while (true) {
+                Socket socket = serverSocket.accept();
+                System.out.println("Client joined..");
+                clients.add(socket);
+                
+                new Thread(() -> {
+                    try {
+                        String str = "";
+                        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                        
 
-            PrintWriter out=new PrintWriter(socket.getOutputStream(),true);
+                        while ((str = in.readLine()) != null) {
+                            System.out.println("From : " + socket + " got : " + str);
+                            for (Socket s : clients) {
+                                if (!(s.isClosed())) {
+                                    new PrintWriter(s.getOutputStream(),true).println("Echo : " + str);
+                                }
+                            }
+                        }
 
-            //accepting the data from the client.
-            String str="";
+                    } catch (IOException e) {
+                        System.out.println("Client is closed.");
+                    }
 
-        
-            socket.close();
-            System.out.println("Connection closed.");
-            
-        }catch(IOException e){
+                }).start();
+            }
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
