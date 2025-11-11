@@ -14,37 +14,39 @@ public class graph_part1{
 
     
     public static void BFS(ArrayList<Edge> graph[]){
-        Queue<Integer> q1=new LinkedList<Integer>();
-        boolean vis[]=new boolean[graph.length];
+        Queue<Integer> q1=new LinkedList<>();
         q1.add(0);
+        boolean vis[]=new boolean[graph.length];
+        
         while(!q1.isEmpty()){
             int curr=q1.remove();
             if(!vis[curr]){
-                System.out.print(curr+" ");
+                System.out.println(curr+" ");
                 vis[curr]=true;
                 for(int i=0;i<graph[curr].size();i++){
-                    q1.add(graph[curr].get(i).dest);
+                    Edge e=graph[curr].get(i);
+                    q1.add(e.dest);
                 }
             }
         }
     }
 
-    public static void DFS(ArrayList<Edge> graph[],boolean vis[],int curr){
+    public static void DFS(ArrayList<Edge> graph[],int curr,boolean vis[]){
         System.out.print(curr+" ");
         vis[curr]=true;
 
         for(int i=0;i<graph[curr].size();i++){
             Edge e=graph[curr].get(i);
             if(!vis[e.dest]){
-                DFS(graph,vis,e.dest);
+                DFS(graph,e.dest,vis);
             }
         }
     }
 
-
     public static boolean hasPath(ArrayList<Edge> graph[],int src,int dest,boolean vis[]){
-
         //base case
+
+        
         if(src==dest){
             return true;
         }
@@ -56,6 +58,7 @@ public class graph_part1{
                 return true;
             }
         }
+
         return false;
     }
 
@@ -99,10 +102,7 @@ public class graph_part1{
         // }
         // BFS(graph);
 
-        DFS(graph,new boolean[graph.length],0);
-
-        System.out.println();
-
+        // DFS(graph,0,new boolean[graph.length]);
         System.out.println(hasPath(graph, 0, 5, new boolean[graph.length]));
     }
 }
