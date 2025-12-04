@@ -1,18 +1,37 @@
 import java.util.PriorityQueue;
+import java.util.Comparator;
 public class priorityQueue{
-    public static void main(String args[]){
-        PriorityQueue<Integer> pq=new PriorityQueue<>();
 
-        pq.add(6);
-        pq.add(4);
-        pq.add(1);
-        pq.add(7);
+    static class Student implements Comparable<Student>{
+        String name;
+        int rank;
+
+        public Student(String name,int rank){
+            this.name=name;
+            this.rank=rank;
+        }
+
+
+        @Override
+        public int compareTo(Student s2){
+            return this.rank-s2.rank;
+        }
+    }
+    public static void main(String args[]){
+        PriorityQueue<Student> pq=new PriorityQueue<>();
+
+        pq.add(new Student("Anwesha",1));
+        pq.add(new Student("Manmay",5));
+        pq.add(new Student("Lopa",3));
+        pq.add(new Student("Vishesh",2));
+
 
 
         System.out.println("Elements in the priority Queue are : ");
 
         while(!pq.isEmpty()){
-            System.out.println(pq.remove());
+            Student s=pq.remove();
+            System.out.println(s.name+"--->"+s.rank);
         }
     }
 }
