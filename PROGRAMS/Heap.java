@@ -1,6 +1,8 @@
 import java.util.*;
 
 public class Heap{
+
+    //inserting into the heap(min heap).
     public static ArrayList<Integer> insertHeap(ArrayList<Integer> list,int ele){
         list.add(ele);
         int i=list.size()-1;
@@ -17,15 +19,23 @@ public class Heap{
         return list;
     }
 
+    //peek element from the heap(min heap).
+    public static int peekHeap(ArrayList<Integer> list){
+        return list.get(0);
+    }
+
     public static void printList(ArrayList<Integer> list){
         System.out.println("Elements in the list are : ");
         for(int i=0;i<list.size();i++){
             System.out.print(list.get(i)+" ");
-        }
+        } System.out.println();
     }
     public static void main(String args[]){
         ArrayList<Integer> list=new ArrayList<>(Arrays.asList(2,3,4,5,10));
         ArrayList<Integer> list1=insertHeap(list,1);
         printList(list1);
+
+        System.out.println("Peek element from the heap is : ");
+        System.out.println(peekHeap(list1));
     }
 }
