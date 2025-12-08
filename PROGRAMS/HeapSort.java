@@ -6,14 +6,14 @@ public class HeapSort{
         int right=(2*i)+2;
         int max=i;
 
-        if(left<list.size()-1 && list.get(left)>list.get(max)){
+        if(left<=n && list.get(left)>list.get(max)){
             max=left; 
-        } if(right<list.size()-1 && list.get(right)>list.get(max)){
+        } if(right<=n && list.get(right)>list.get(max)){
             max=right;
         }
 
 
-        if(i==max || i==n){
+        if(i==max){
             return;
         }
 
@@ -22,7 +22,7 @@ public class HeapSort{
         list.set(i,list.get(max));
         list.set(max,temp);
 
-        heapify(list,max,n);
+       heapify(list,max,n);
     }
 
     public static void heapSort(ArrayList<Integer> list){
