@@ -36,8 +36,6 @@ public class HeapSort{
 
         //step:2 got maxHeap now Sorting the arrayList.
         
-        
-
         while(n>0){
             int temp=list.get(0);
             list.set(0,list.get(n));
