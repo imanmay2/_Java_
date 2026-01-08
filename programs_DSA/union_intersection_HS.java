@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 public class union_intersection_HS {
     public static void printUnion(int arr1[],int arr2[]){
         HashSet<Integer> hs=new HashSet<>();
