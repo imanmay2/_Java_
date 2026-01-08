@@ -12,7 +12,7 @@ public class iternary_from_tickets {
         return hm;
     }
 
-    public static String  startPoint(HashMap<String,String> tickets,HashMap<String,String> rhm){
+    public static String startPoint(HashMap<String,String> tickets,HashMap<String,String> rhm){
         // using the concept of O(n) complexity.
         for(String str:tickets.keySet()){
             if(!rhm.containsKey(str)){
@@ -23,9 +23,11 @@ public class iternary_from_tickets {
     }
 
     public static void printCities(String str,HashMap<String,String> tickets){
-        for(String s:tickets.keySet()){
-            
+        if(!tickets.containsKey(str)){
+            return;
         }
+        System.out.print(tickets.get(str)+" ");
+        printCities(tickets.get(str), tickets);
     }
 
 
@@ -36,6 +38,10 @@ public class iternary_from_tickets {
         tickets.put("G","C");
         tickets.put("D","G");
 
+        HashMap<String,String> rhm=reverseHM(tickets);
+        String start=startPoint(tickets, rhm);
 
+        System.out.print(start+" ");
+        printCities(start, tickets);
     }
 }
