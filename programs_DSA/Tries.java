@@ -38,15 +38,30 @@ public class Tries {
 
         return curr.eow==true;
     }
+
+    public static boolean WordBreak(String key){
+
+        if(key.length()==0){
+            return true;
+        }
+        for(int i=1;i<=key.length();i++){
+            if(search(key.substring(0,i)) && WordBreak(key.substring(i))){
+                return true;
+            }
+        }return false;
+    }
     public static void main(String args[]){
-        String words[]={"the","they","there","a","any","their","thee"};
+        String words[]={"i","like","sam","samsung"};
         for(int i=0;i<words.length;i++){
             insert(words[i]);
         }
 
+        String key="ilikesamsung";
+        System.out.println(WordBreak(key));
 
-        System.out.println(search("thee"));
-        System.out.println(search("th"));
+
+        // System.out.println(search("thee"));
+        // System.out.println(search("th"));
 
     }
 }
