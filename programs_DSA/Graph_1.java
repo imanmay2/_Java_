@@ -35,6 +35,35 @@ public class Graph_1 {
         }
     }
 
+
+    
+    public static void DFS(ArrayList<Edge> graph[],int curr,boolean vis[]){
+        System.out.print(curr+" ");
+        vis[curr]=true;
+        for(int i=0;i<graph[curr].size();i++){
+            Edge e=graph[curr].get(i);
+            if(!vis[e.dest]){
+                DFS(graph,e.dest,vis);
+            }
+        }
+    }
+
+    public static boolean hasPath(ArrayList<Edge> graph[],int src,int dest,boolean vis[]){
+        if(src==dest){
+            return true;
+        }
+
+        int curr=src;
+        vis[curr]=true;
+        for(int i=0;i<graph[curr].size();i++){
+            Edge e=graph[curr].get(i);
+            if(!vis[e.dest] && hasPath(graph, e.dest, dest, vis)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String args[]) {
 
         int V = 7;
@@ -67,6 +96,10 @@ public class Graph_1 {
         graph[6].add(new Edge(6, 5));
 
         BFS(graph, V);
+        System.out.println();
 
+        DFS(graph, 0, new boolean[V]);
+        System.out.println();
+        System.out.println(hasPath(graph,0,8,new boolean[V]));
     }
 }
