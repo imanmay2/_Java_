@@ -1,19 +1,30 @@
 import java.util.ArrayList;
-
+import java.util.PriorityQueue;
 public class Dijktra_Algorithm {
     static class Edge {
         int src, dest, wt;
 
-        public Edge(int src, int dest, int wt) {
+        public Edge(int src, int dest, int wt){
             this.src = src;
             this.dest = dest;
             this.wt = wt;
         }
     }
 
-    public static void main(String args[]) {
-        int V = 6;
-        ArrayList<Edge> graph[] = new ArrayList[V];
+    static class Pair implements Comparable<Pair>{
+        int n,path;
+        public Pair(int n,int path){
+            this.n=n;
+            this.path=path;
+        }
+
+        @Override
+        public int compareTo(Pair p2){
+            return this.path-p2.path;
+        }
+    }
+
+    public static void createGraph(ArrayList<Edge> graph[]){
         for (int i = 0; i < graph.length; i++) {
             graph[i] = new ArrayList<>();
         }
@@ -30,6 +41,50 @@ public class Dijktra_Algorithm {
 
         graph[4].add(new Edge(4, 3, 2));
         graph[4].add(new Edge(4, 5, 5));
+    }
 
+    public static void shortestDistance(ArrayList<Edge> graph[],int src,int dest){
+        //using dijktra's algorithm
+        boolean vis[]=new boolean[graph.length];
+        int dist[]=new int[graph.length];
+        for(int i=0;i<dist.length;i++){
+            if(i!=src){
+                dist[i]=Integer.MAX_VALUE;
+            }
+        }
+
+        PriorityQueue<Pair> pq=new PriorityQueue<>();
+        pq.add(new Pair(0,0));
+
+        while(!pq.isEmpty()){
+            Pair curr=pq.remove();
+            if(!vis[curr.n]){
+                vis[curr.n]=true;
+                //visiting it's neighbour
+                for(int i=0;i<graph[curr.n].size();i++){
+                    Edge e=graph[curr.n].get(i);
+                    int u=e.src;
+                    int v=e.dest;
+                    int wt=e.wt;
+
+                    if(dist[u]+wt<dist[v]){
+                        dist[v]=dist[u]+wt;
+                        pq.add(new Pair(v, dist[v]));
+                    }
+                }
+            }
+        }
+
+        //print the shortest paths
+        for(int i=0;i<dist.length;i++){
+            System.out.println(i+" "+dist[i]);
+        }
+    }
+
+    public static void main(String args[]) {
+        int V = 6;
+        ArrayList<Edge> graph[] = new ArrayList[V];
+        createGraph(graph);
+        shortestDistance(graph,0,5);
     }
 }
