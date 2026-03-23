@@ -63,6 +63,11 @@ public class DP_Part3 {
             }
         }return dp[n][m];
     }
+
+    public static int RodCutting_Tabulation(int rodLength[],int price[],int max_length){
+        //specific type of unbounded knapSack
+        
+    }
     public static void main(String args[]){
         String str1=new String("abcde");
         String str2=new String("acde");
