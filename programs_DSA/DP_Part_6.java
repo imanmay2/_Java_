@@ -6,6 +6,7 @@ public class DP_Part_6 {
         }
         dp[dp.length-1]=0; //init
     }
+
     public static int canJump(int[] nums) {
         int dp[]=new int[nums.length];
         init_dp(dp);
@@ -23,6 +24,12 @@ public class DP_Part_6 {
             }
         }return dp[0];
     }
+
+    public static int maxPartition(int arr[]){
+        
+    }
+
+
     
     public static void main(String args[]){
         System.out.println("Welcome to Java. ");
