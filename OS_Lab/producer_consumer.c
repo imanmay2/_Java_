@@ -33,9 +33,7 @@ void *producer(void *args){
 
 void *consumer(void *args){
     int item;
-
     for(int i=0;i<n;i++){
-        
         sem_wait(&full);
         sem_wait(&mutex);
 
