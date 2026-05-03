@@ -28,6 +28,26 @@ public class Segment_Tree{
         }
     }
 
+    public static void updateUtil(int i,int si,int sj,int idx,int diff){
+        if(idx<si || sj<idx){
+            return;
+        }
+
+        tree[i]+=diff;
+        if(si!=sj){
+            //branch into 2 as not leaf node
+            int mid=(si+sj)/2;
+            updateUtil(2*i+1, si, mid, idx, diff);
+            updateUtil(2*i+2, mid+1, sj, idx, diff);
+        }
+    }
+    public static void updateQuery(int arr[],int i,int idx,int newval,int si,int sj){
+        int diff=newval-arr[idx];
+        arr[idx]=newval;
+        updateUtil(i, si, sj, idx, diff);
+        System.out.println("Query Updated");
+    }
+
     public static void buildTree(int arr[],int sti,int start,int end){
         //base case
         if(start==end){
@@ -44,6 +64,8 @@ public class Segment_Tree{
     public static void main(String args[]){
         buildTree(arr, 0, 0, arr.length-1);
         // printTree(tree);
-        System.err.println(query_sum(0, 0, arr.length-1, 2, 5));
+        System.out.println(query_sum(0, 0, arr.length-1, 2, 5));
+        updateQuery(arr, 0, 2, 2, 0, arr.length-1);
+        System.out.println(query_sum(0, 0, arr.length-1, 2, 5));
     }
 }
