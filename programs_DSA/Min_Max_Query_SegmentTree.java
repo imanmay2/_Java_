@@ -60,6 +60,5 @@ public class Min_Max_Query_SegmentTree {
         updateQuery(3, 20);
         System.out.println("The Maximum is : "+findMaxSubArray(0, 0, arr.length, 2, 5));
         printTree(tree);
-
     }
 }
