@@ -42,16 +42,28 @@ public class Greedy_Algorithm {
         return maxProfit;
     }
 
+    public static int min_abs_diff_pairs(int arr1[],int arr2[]){
+        int mini=0;
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        for(int i=0;i<arr1.length;i++){
+            mini+=Math.abs(arr1[i]-arr2[i]);
+        }
+        return mini;
+    } 
+
     public static void main(String args[]) {
         // int start[] = { 1, 3, 0, 5, 8, 5 };
         // int end[] = { 2, 4, 6, 7, 9, 9 };
         // // System.out.println(ActivitySelection(start, end));
 
-        int val[]={60,100,120};
-        int wt[]={10,20,30};
-        int W=50;
-        
-        System.out.println(fractional_knapsack(val, wt, W));
-    
+        // int val[]={60,100,120};
+        // int wt[]={10,20,30};
+        // int W=50;
+        // System.out.println(fractional_knapsack(val, wt, W));
+
+        int arr1[]={1,2,3};
+        int arr2[]={3,2,1};
+        System.out.println(min_abs_diff_pairs(arr1, arr2));
     }
 }
