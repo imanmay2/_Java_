@@ -52,6 +52,22 @@ public class Greedy_Algorithm {
         return mini;
     } 
 
+    public static int indian_coin(int val,int coinsAvail[]){
+        //val= 590
+        int min=0;
+        Arrays.sort(coinsAvail);
+        int idx=coinsAvail.length-1;
+        while(val!=0){
+            if(coinsAvail[idx]<=val){
+                min++;
+                val-=coinsAvail[idx];
+                idx=coinsAvail.length-1;
+            }else{
+                idx--;
+            }
+        }
+        return min;
+    }
     public static void main(String args[]) {
         // int start[] = { 1, 3, 0, 5, 8, 5 };
         // int end[] = { 2, 4, 6, 7, 9, 9 };
@@ -62,8 +78,12 @@ public class Greedy_Algorithm {
         // int W=50;
         // System.out.println(fractional_knapsack(val, wt, W));
 
-        int arr1[]={1,2,3};
-        int arr2[]={3,2,1};
-        System.out.println(min_abs_diff_pairs(arr1, arr2));
+        // int arr1[]={1,2,3};
+        // int arr2[]={3,2,1};
+        // System.out.println(min_abs_diff_pairs(arr1, arr2));
+
+        int coinsAvail[]={1,2,5,10,20,50,100,500,2000};
+        int val=121;
+        System.out.println(indian_coin(val, coinsAvail));
     }
 }
