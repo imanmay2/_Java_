@@ -7,11 +7,9 @@ public class BackTracking_ {
     }
     public static void backtrackArray(int arr[],int i){
         //base case
-        if(i==arr.length-1){
-            arr[i]=i+1;
+        if(i==arr.length){
             System.out.println("Array first time");
             printArr(arr);
-            arr[i]=arr[i]-2;
             return;
         }
         arr[i]=i+1;
