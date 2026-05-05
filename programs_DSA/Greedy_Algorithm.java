@@ -53,6 +53,7 @@ public class Greedy_Algorithm {
     } 
 
     public static int indian_coin(int val,int coinsAvail[]){
+        ArrayList<Integer> list=new ArrayList<>();
         //val= 590
         int min=0;
         Arrays.sort(coinsAvail);
@@ -60,13 +61,54 @@ public class Greedy_Algorithm {
         while(val!=0){
             if(coinsAvail[idx]<=val){
                 min++;
+                list.add(coinsAvail[idx]);
                 val-=coinsAvail[idx];
                 idx=coinsAvail.length-1;
             }else{
                 idx--;
             }
         }
+
+        System.out.println("Coins used are : ");
+        for(int i=0;i<list.size();i++){
+            System.out.print(list.get(i)+" ");
+        }System.out.println();
         return min;
+    }
+
+    static class Job{
+        int id=0,deadline=0,profit=0;
+        Job(int id,int deadline,int profit){
+            this.id=id;
+            this.deadline=deadline;
+            this.profit=profit;
+        }
+    }
+
+    public static int job_sequencing(int jobList[][]){
+        ArrayList<Job> jobs=new ArrayList<>();
+        for(int i=0;i<jobList.length;i++){
+            jobs.add(new Job(i,jobList[i][0],jobList[i][1]));
+        }
+        Collections.sort(jobs,(obj1,obj2)->obj2.profit-obj1.profit); //sorting of the array in the descending order.
+        
+        //main logic for sequencing
+        ArrayList<Integer> seq=new ArrayList<>();
+        int time=0;
+        int maxProfit=0;
+        for(int i=0;i<jobs.size();i++){
+            Job curr=jobs.get(i);
+            if(curr.deadline>time){
+                maxProfit+=curr.profit;
+                time++;
+                seq.add(curr.id);
+            }
+        }
+        System.out.println("The Sequence is : ");
+        for(int i=0;i<seq.size();i++){
+            System.out.print(seq.get(i)+" ");
+        }System.out.println();
+        return maxProfit;
     }
     public static void main(String args[]) {
         // int start[] = { 1, 3, 0, 5, 8, 5 };
@@ -82,8 +124,11 @@ public class Greedy_Algorithm {
         // int arr2[]={3,2,1};
         // System.out.println(min_abs_diff_pairs(arr1, arr2));
 
-        int coinsAvail[]={1,2,5,10,20,50,100,500,2000};
-        int val=121;
-        System.out.println(indian_coin(val, coinsAvail));
+        // int coinsAvail[]={1,2,5,10,20,50,100,500,2000};
+        // int val=121;
+        // System.out.println(indian_coin(val, coinsAvail));
+
+        int jobList[][]={{1,40},{1,30},{4,20},{1,10}};
+        System.out.println(job_sequencing(jobList));
     }
 }
