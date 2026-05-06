@@ -5,6 +5,8 @@ public class BackTracking_ {
             System.out.print(arr[i]+ " ");
         }System.out.println();
     }
+
+
     public static void backtrackArray(int arr[],int i){
         //base case
         if(i==arr.length){
@@ -18,25 +20,37 @@ public class BackTracking_ {
     }
 
     public static void subsetString(String str,String ans,int i){
-        //base case
-        if(str.length()==i){
-
+        if(i==str.length()){
             if(ans.length()==0){
                 System.out.println("null");
-                return;
+            }else{
+                System.out.println(ans);
             }
+            return;
+        }
+        subsetString(str, ans+str.charAt(i), i+1); //yes .
+        subsetString(str, ans, i+1); //no .
+    }
+
+    public static void findPermutationStrings(String str,String ans){
+        //base case
+        if(str.length()==0){
             System.out.println(ans);
             return;
         }
-        subsetString(str, ans+str.charAt(i), i+1);//yes , string is onn
-        subsetString(str, ans, i+1); //no, string is not taking part. 
+
+        for(int i=0;i<str.length();i++){
+            char curr=str.charAt(i);
+            String newStr=str.substring(0,i)+str.substring(i+1);
+            findPermutationStrings(newStr, ans+curr);
+        }
     }
     public static void main(String args[]){
         // int arr[]=new int[5];
         // backtrackArray(arr, 0);
         // System.out.println("Final Array : ");
         // printArr(arr);
-
-        subsetString("abc", "", 0);
+        // subsetString("abc", "", 0);
+        findPermutationStrings("abc", "");
     }
 }
