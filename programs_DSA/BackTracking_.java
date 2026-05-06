@@ -95,6 +95,17 @@ public class BackTracking_ {
             }
         }return false;
     }
+    public static int grid_ways(int i,int j,int n,int m){
+        //base case
+        if(i>n || j>m){
+            return 0;
+        }
+        if(i==n-1 && j==m-1){
+            return 1;
+        }
+
+        return grid_ways(i+1, j, n, m)+grid_ways(i, j+1, n, m);
+    }
     public static void main(String args[]) {
         // int arr[]=new int[5];
         // backtrackArray(arr, 0);
@@ -102,17 +113,20 @@ public class BackTracking_ {
         // printArr(arr);
         // subsetString("abc", "", 0);
         // findPermutationStrings("abc", "");
-        int n = 2;
-        char board[][] = new char[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                board[i][j] = 'x';
-            }
-        }
-        if(N_Queens(board, 0)){
-            System.out.print("Solution Exists.");
-        }else{
-            System.out.println("Solution doesn't exists.");
-        }
+        // int n = 2;
+        // char board[][] = new char[n][n];
+        // for (int i = 0; i < n; i++) {
+        //     for (int j = 0; j < n; j++) {
+        //         board[i][j] = 'x';
+        //     }
+        // }
+        // if(N_Queens(board, 0)){
+        //     System.out.print("Solution Exists.");
+        // }else{
+        //     System.out.println("Solution doesn't exists.");
+        // }
+
+        int n=3,m=3;
+        System.out.println(grid_ways(0, 0, n, m));
     }
 }
