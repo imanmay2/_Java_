@@ -77,22 +77,23 @@ public class BackTracking_ {
             }
         }
         return true;
-
     }
 
-    public static void N_Queens(char board[][], int row){
+    public static boolean N_Queens(char board[][], int row){
         if (row == board.length) {
             System.out.println("-------Chess Board--------");
             printBoard(board);
-            return;
+            return true;
         }
         for (int j = 0; j < board.length; j++) {
             if (isSafe(board, row, j)) {
                 board[row][j] = 'Q';
-                N_Queens(board, row + 1);
+                if (N_Queens(board, row + 1)){
+                    return true;
+                }
                 board[row][j] = 'x';
             }
-        }
+        }return false;
     }
     public static void main(String args[]) {
         // int arr[]=new int[5];
@@ -101,13 +102,17 @@ public class BackTracking_ {
         // printArr(arr);
         // subsetString("abc", "", 0);
         // findPermutationStrings("abc", "");
-        int n = 5;
+        int n = 2;
         char board[][] = new char[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 board[i][j] = 'x';
             }
         }
-        N_Queens(board, 0);
+        if(N_Queens(board, 0)){
+            System.out.print("Solution Exists.");
+        }else{
+            System.out.println("Solution doesn't exists.");
+        }
     }
 }
