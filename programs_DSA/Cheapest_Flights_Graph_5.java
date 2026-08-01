@@ -1,11 +1,16 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+class Solution {
+    class Pair{
+        int n,cost,k;
+        public Pair(int n,int cost,int k){
+            this.n=n;
+            this.cost=cost;
+            this.k=k;
+        }
+    }
 
-public class Cheapest_Flights_Graph_5 {
+
     static class Edge {
         int src, dest, wt;
-
         public Edge(int src, int dest, int wt) {
             this.src = src;
             this.dest = dest;
@@ -13,72 +18,45 @@ public class Cheapest_Flights_Graph_5 {
         }
     }
 
-    
-
-    public static void createGraph(ArrayList<Edge> graph[]) {
-        for (int i = 0; i < graph.length; i++) {
-            graph[i] = new ArrayList<>();
+    public static void createGraph(ArrayList<Edge> graph[], int[][] edges) {
+        for(int i=0;i<graph.length;i++){
+            graph[i]=new ArrayList<>();
         }
-
-        graph[0].add(new Edge(0, 1, 1));
-        graph[0].add(new Edge(0, 2, 5));
-
-        graph[1].add(new Edge(1, 2, 1));
-
-        graph[2].add(new Edge(2, 3, 1));
-
-    }
-
-    static class Info{
-        int v,path,s;
-        public Info(int v,int path,int s){
-            this.v=v;
-            this.path=path;
-            this.s=s;
+        for (int i = 0; i < edges.length; i++) {
+            int src = edges[i][0];
+            int dest = edges[i][1];
+            int wt = edges[i][2];
+            graph[src].add(new Edge(src, dest, wt));
         }
     }
-
-    public static void CheapestDistance(ArrayList<Edge> graph[], int src, int dest, int k) {
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
         k++;
-        int dist[]=new int[graph.length];
-        for(int i=0;i<dist.length;i++){
-            if(src!=i){
+        int dist[]=new int[n];
+        for(int i=0;i<n;i++){
+            if(i!=src){
                 dist[i]=Integer.MAX_VALUE;
             }
         }
-
-        Queue<Info> q1=new LinkedList<>();
-        q1.add(new Info(src, 0, 0));
-
-        while(!q1.isEmpty()){
-            Info curr=q1.remove();
-
-            if(curr.s>k){
+        ArrayList<Edge> graph[]=new ArrayList[n];
+        createGraph(graph,flights);
+        Queue<Pair> pq=new LinkedList<>();
+        pq.add(new Pair(src,0,0));
+        while(!pq.isEmpty()){
+            Pair curr=pq.remove();
+            if(curr.k>=k){
                 continue;
             }
-
-            //visiting the neighbouring element. 
-            for(int i=0;i<graph[curr.v].size();i++){
-                Edge e=graph[curr.v].get(i);
-
-                int u=e.src;
-                int v=e.dest;
+            //vis the neigh
+            for(int i=0;i<graph[curr.n].size();i++){
+                Edge e=graph[curr.n].get(i);
                 int wt=e.wt;
-
-                //relaxation 
-                if(dist[u]!= Integer.MAX_VALUE && dist[u]+wt<dist[v] && curr.s<=k){
-                    dist[v]=dist[u]+wt;
-                    q1.add(new Info(v, dist[v], curr.s+1));
+                int v=e.dest;
+                if(curr.cost+wt<dist[v] && curr.k<k){
+                    dist[v]=curr.cost+wt;
+                    pq.add(new Pair(v,dist[v],curr.k+1));
                 }
             }
         }
-
-        System.out.println("Cheapest Cost within k stops is : "+dist[dest]);
-    }
-    public static void main(String args[]) {
-        int V = 5;
-        ArrayList<Edge> graph[] = new ArrayList[V];
-        createGraph(graph);
-        CheapestDistance(graph, 0, 3, 1);
+        return dist[dst]==Integer.MAX_VALUE?-1:dist[dst];
     }
 }
