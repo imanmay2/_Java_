@@ -5,8 +5,6 @@ using namespace std;
 
 //find the count for the diigits
 long long digCount(long long num){
-
-
     if(num==0){
         return 1;
     }
